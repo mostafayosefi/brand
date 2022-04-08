@@ -1,0 +1,42 @@
+/*!
+Theme Name: موسسه میزان
+Theme URI: https://sabt-ag.ir/
+Author Website: kajsabt.com
+Author: طراحی و توسعه کاج
+Author Email: sub.kaj@gmail.com
+Author Address: Iran,Tehran
+Version: 1.0.0
+Description: قالب اختصاصي سایت موسسه میزان
+*/
+.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 10px !important;
+}
+
+.gform_footer .gform_button {
+	background-color: #386fde;
+    border: 0;
+    padding: 12px 15px;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 0 0 3px #386fde;
+}
+table {  
+    color: #333;
+    width: 640px; 
+    border-collapse: 
+    collapse; border-spacing: 0; 
+}
+
+td, th { border: 1px solid #CCC; height: 30px; } /* Make cells a bit taller */
+
+th {  
+    background: #F3F3F3; /* Light grey background */
+    font-weight: bold; /* Make sure they're bold */
+}
+
+td {  
+    background: #FAFAFA; /* Lighter grey background */
+    text-align: center; /* Center our text */
+}
