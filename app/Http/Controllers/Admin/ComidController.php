@@ -69,7 +69,7 @@ $data = $request->all();
 $data['image']  =  uploadFile($request->file('image'),'images/setting','');
 
 
-Comid::create(['title' => $request->title  , 'status' => $status   ,'image' =>$data['image']   ]);
+Comid::create(['title' => $request->title  ,'text' => $request->text , 'status' => $status   ,'image' =>$data['image']   ]);
 
 }
 
@@ -109,7 +109,7 @@ return redirect()->back();
             ['status' , '=' , $status],
             ['id' , '=' , $id]
         ])->first();
-$data = $request->all();
+$data = $request->all(); 
 $data['image']  =  uploadFile($request->file('image'),'images/setting',$comid->image);
 $comid->update($data);
 

@@ -13,8 +13,7 @@
 
 
     <div class="row">
-        <div class="col-3 ab-item"></div>
-            <div class="col-6  ">
+            <div class="col-12  ">
             <div class="row flex-grow">
 
 
@@ -57,6 +56,16 @@
                                             </div>
 
 
+                                            <hr>
+                                            <div class="form-group">
+                                                <label for="text"> متن</label>
+                                                <textarea class="form-control"  autocomplete="off"
+                                                    placeholder="متن" name="text"  id="tinymceExample" rows="8"
+                                                     >{{ old('text') }}</textarea>
+                                            </div>
+
+
+
 
 
                                             <hr>
@@ -95,7 +104,6 @@
             </div>
         </div>
 
-        <div class="col-3 "></div>
 
     </div>
 
@@ -189,6 +197,18 @@
 	<script src="{{ asset('template/assets/js/inputmask.js') }}"></script>
 	<script src="{{ asset('template/assets/js/select2.js') }}"></script>
 	<script src="{{ asset('template/assets/js/typeahead.js') }}"></script>
+
+
+
+    <script src="{{ asset('template/assets/vendors/tinymce-rtl/tinymce.min.js') }}"></script>
+      <script src="{{ asset('template/assets/vendors/simplemde/simplemde.min.js') }}"></script>
+      <script src="{{ asset('template/assets/vendors/ace-builds/src-min/ace.js') }}"></script>
+      <script src="{{ asset('template/assets/vendors/ace-builds/src-min/theme-chaos.js') }}"></script>
+
+      <script src="{{ asset('template/assets/js/tinymce.js') }}"></script>
+      <script src="{{ asset('template/assets/js/tinymce.js') }}"></script>
+      <script src="{{ asset('template/assets/js/ace.js') }}"></script>
+
 
 
 

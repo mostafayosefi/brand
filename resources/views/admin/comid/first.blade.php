@@ -70,18 +70,7 @@
                                             <label for="text">توضیح</label>
                                             <input type="text" class="form-control" id="text" autocomplete="off" placeholder="توضیح" name="text"  value="{{old('text')}}"  required >
                                             </div>
-
-
-                                            <div class="form-group" >
-                                            <label for="btn">نام دکمه</label>
-                                            <input type="text" class="form-control" id="btn" autocomplete="off" placeholder="نام دکمه" name="btn"  value="{{old('btn')}}"  required >
-                                            </div>
-
-                                            <div class="form-group" >
-                                            <label for="link">لینک دکمه</label>
-                                            <input type="text" class="form-control" id="link" autocomplete="off" placeholder="لینک دکمه" name="link"  value="{{old('link')}}"    >
-                                            </div>
-
+ 
 
 
                                             <hr>

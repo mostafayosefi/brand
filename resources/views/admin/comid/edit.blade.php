@@ -57,8 +57,7 @@
 
 
     <div class="row">
-        <div class="col-3 ab-item"></div>
-            <div class="col-6  ">
+            <div class="col-12  ">
             <div class="row flex-grow">
 
 
@@ -99,17 +98,7 @@
                                             <input type="text" class="form-control" id="text" autocomplete="off" placeholder="توضیح" name="text"  value="{{$comid->text}}"  required >
                                             </div>
 
-
-                                            <div class="form-group" >
-                                            <label for="btn">نام دکمه</label>
-                                            <input type="text" class="form-control" id="btn" autocomplete="off" placeholder="نام دکمه" name="btn"  value="{{$comid->btn}}"  required >
-                                            </div>
-
-                                            <div class="form-group" >
-                                            <label for="link">لینک دکمه</label>
-                                            <input type="text" class="form-control" id="link" autocomplete="off" placeholder="لینک دکمه" name="link"  value="{{$comid->link}}"    >
-                                            </div>
-
+ 
 
 
  @include('admin.layouts.table.avatarnul', [  'avatarimage' => $comid->image , 'class'=>'' , 'style' => 'height: 160px;width: 160px;'  ])
@@ -199,6 +188,15 @@
                                         <div class="form-group" >
                                             <label for="title">نام سرویس</label>
                                             <input type="text" class="form-control" id="title" autocomplete="off" placeholder="نام سرویس" name="title"  value="{{$comid->title}}"  required >
+                                            </div>
+
+
+                                            <hr>
+                                            <div class="form-group">
+                                                <label for="text"> متن</label>
+                                                <textarea class="form-control"  autocomplete="off"
+                                                    placeholder="متن" name="text"  id="tinymceExample" rows="8"
+                                                     >{{$comid->text}}</textarea>
                                             </div>
 
 
@@ -320,7 +318,6 @@
             </div>
         </div>
 
-        <div class="col-3 "></div>
 
     </div>
 
@@ -356,6 +353,15 @@
 	<script src="{{ asset('template/assets/js/select2.js') }}"></script>
 	<script src="{{ asset('template/assets/js/typeahead.js') }}"></script>
 
+    <script src="{{ asset('template/assets/vendors/core/core.js') }}"></script>
+    <script src="{{ asset('template/assets/vendors/tinymce-rtl/tinymce.min.js') }}"></script>
+      <script src="{{ asset('template/assets/vendors/simplemde/simplemde.min.js') }}"></script>
+      <script src="{{ asset('template/assets/vendors/ace-builds/src-min/ace.js') }}"></script>
+      <script src="{{ asset('template/assets/vendors/ace-builds/src-min/theme-chaos.js') }}"></script>
+
+      <script src="{{ asset('template/assets/js/tinymce.js') }}"></script>
+      <script src="{{ asset('template/assets/js/tinymce.js') }}"></script>
+      <script src="{{ asset('template/assets/js/ace.js') }}"></script>
 
 
 
