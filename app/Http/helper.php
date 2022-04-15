@@ -225,8 +225,27 @@ if(! function_exists('storelistbrands') ) {
 }
 
 
-if(! function_exists('urllink') ) {
+if(! function_exists('sumpricereqbrand') ) {
+    function sumpricereqbrand($id){
 
+        $listbrands=Listservicebrand::where([ ['requestbrand_id' ,   $id ],
+        ['show' ,   1 ],  ])->get();
+
+
+        $price=0;
+        foreach($listbrands as $listbrand){
+           $price = $listbrand->servicebrand->price + $price;
+        }
+
+        return $price;
+
+
+
+    }
+}
+
+
+if(! function_exists('urllink') ) {
     function urllink($urllink)
     {
 

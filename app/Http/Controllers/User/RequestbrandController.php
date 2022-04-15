@@ -56,6 +56,8 @@ class RequestbrandController extends Controller
         }
 
        $funclistbeand = storelistbrands($requestbrand->id,$request->servicebrand);
+       $price=sumpricereqbrand($requestbrand->id);
+       $requestbrand->update([ 'price' => $price  ]);
        Alert::success('با موفقیت ثبت شد', 'اطلاعات جدید با موفقیت ثبت شد');
         return redirect()->route('admin.requestbrand.index');
     }

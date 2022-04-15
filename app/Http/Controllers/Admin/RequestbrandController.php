@@ -20,7 +20,7 @@ class RequestbrandController extends Controller
 
 
     public function index(){
-        $requestbrands= Requestbrand::where([ ['id','<>','0'] ])->orderby('id' , 'desc')->get(); 
+        $requestbrands= Requestbrand::where([ ['id','<>','0'] ])->orderby('id' , 'desc')->get();
         return view('admin.requestbrand.index' , compact(['requestbrands'  ]));
     }
 
@@ -43,7 +43,8 @@ class RequestbrandController extends Controller
     {
 
         $data = $request->all();
-        $data['status']='register';
+        // $data['status']='register';
+        $data['status']='waiting';
         $requestbrand=Requestbrand::create($data);
         $image_uploader_multiple =  uploadFileArray($request->image_uploader_multiple,'images/requestbrands');
         if($image_uploader_multiple){
@@ -53,13 +54,14 @@ class RequestbrandController extends Controller
         }
 
        $funclistbeand = storelistbrands($requestbrand->id,$request->servicebrand);
+       $price=sumpricereqbrand($requestbrand->id);
+       $requestbrand->update([ 'price' => $price  ]);
        Alert::success('با موفقیت ثبت شد', 'اطلاعات جدید با موفقیت ثبت شد');
         return redirect()->route('admin.requestbrand.index');
     }
 
     public function show($id)
     {
-
         $requestbrand=Requestbrand::find($id);
         $users=User::all();
         $servicebrands=Servicebrand::all();
