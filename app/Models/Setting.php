@@ -15,7 +15,7 @@ class Setting extends Model
      protected $fillable = [ 'title', 'instagram' ,   'facebook', 'twitter' ,
       'youtube', 'tell' ,   'email', 'address' ,   'description', 'keyword' ,
        'fcopy', 'analatik' ,   'codetiket', 'favicon' ,   'logo',   '_token',
-       'favicon',  'api',   'updated_at',     'created_at' ,   'whatsapp' ,    ];
+       'favicon',  'api',   'updated_at',     'created_at' ,   'whatsapp' , 'textheader' ,  ];
 
 
 

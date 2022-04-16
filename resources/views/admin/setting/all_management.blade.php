@@ -47,6 +47,14 @@
                                         </div>
 
 
+                                        <div class="form-group">
+                                            <h4 class="card-title">متن بالای منو ایندکس</h4>
+                                            <input type="text" class="form-control" id="textheader"
+                                                autocomplete="off" placeholder="متن بالای منو ایندکس " name="textheader"
+                                                value="{{ $setting->textheader }}" required>
+                                        </div>
+
+
 
                                         <div class="form-group">
                                             <h4 class="card-title">اینستاگرام </h4>

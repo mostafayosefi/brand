@@ -29,7 +29,7 @@ class RequestbrandRequest extends FormRequest
     {
 
         return [
-            'user_id' => 'required',
+            // 'user_id' => 'required',
             'name' => 'required|unique:users|min:8',
             'categorybrand_id' => 'required',
             'subcategorybrand_id' => 'required',
@@ -73,7 +73,7 @@ class RequestbrandRequest extends FormRequest
     public function status()
     {
         return [
-            
+
             'price' => ['required',new ValidateRule('validate_rep_price')] ,
         ];
     }

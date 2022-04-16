@@ -221,7 +221,7 @@
      @endif
 
             </td>
-        </tr> 
+        </tr>
 
 
         @if ($requestbrand->status == 'waiting')

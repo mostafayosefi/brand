@@ -28,6 +28,10 @@ class ComidController extends Controller
             $comids = Comid::where('status' , 'coment')->get();
             return view('admin.comid.coment' , compact(['comids'   ]));
         }
+        if($status=='mnglogos'){
+            $comids = Comid::where('status' , 'mnglogos')->get();
+            return view('admin.comid.mnglogos' , compact(['comids'   ]));
+        }
     }
 
 
@@ -67,8 +71,6 @@ $request->validate([
 
 $data = $request->all();
 $data['image']  =  uploadFile($request->file('image'),'images/setting','');
-
-
 Comid::create(['title' => $request->title  ,'text' => $request->text , 'status' => $status   ,'image' =>$data['image']   ]);
 
 }
@@ -80,6 +82,23 @@ if($status=='coment'){
      'role' => $request->role  , 'status' => $status     ]);
 
 }
+
+
+
+if($status=='mnglogos'){
+
+    $request->validate([
+        'title' => 'required',
+        'image'  => 'required'
+
+    ]);
+
+    $data = $request->all();
+    $data['image']  =  uploadFile($request->file('image'),'images/setting','');
+    Comid::create(['title' => $request->title  ,'text' => $request->text , 'status' => $status   ,'image' =>$data['image']   ]);
+
+    }
+
 
 Alert::success('با موفقیت ثبت شد', 'اطلاعات با موفقیت ثبت شد');
 return redirect()->back();
@@ -96,6 +115,9 @@ return redirect()->back();
             ['id' , '=' , $id]
         ])->first();
         $iconfonts= Iconfont::all();
+
+        // dd($comid);
+
         return view('admin.comid.edit' , compact(['comid' , 'iconfonts'  ]));
 
     }
@@ -109,12 +131,12 @@ return redirect()->back();
             ['status' , '=' , $status],
             ['id' , '=' , $id]
         ])->first();
-$data = $request->all(); 
+$data = $request->all();
 $data['image']  =  uploadFile($request->file('image'),'images/setting',$comid->image);
 $comid->update($data);
 
 
-Alert::info('با موفقیت ویرایش شد', 'اطلاعات با ویرایش  شد');
+Alert::info('با موفقیت ویرایش شد', 'اطلاعات  ویرایش  شد');
 return back();
 
 

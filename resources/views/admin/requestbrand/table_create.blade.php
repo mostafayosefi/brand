@@ -32,7 +32,7 @@
 
                                         @if($arou=='admin')
                                         @include('admin.layouts.table.selectbox', [ 'allforeachs' => $users ,  'input_name' => 'name'  ,
-                                          'name_select' => ' کاربر ' ,  'value' => '' , 'required'=>''  ,
+                                          'name_select' => ' کاربر ' ,  'value' => '' , 'required'=>'required'  ,
                                           'index_id'=>'user_id' ])
                                         @endif
 
@@ -272,18 +272,62 @@ function show2(){
 <div>
 
 
+
+    <script>
+        function totalIt() {
+      var input = document.getElementsByName("servicebrand[]");
+      var total = 0;
+      for (var i = 0; i < input.length; i++) {
+        if (input[i].checked) {
+        //   total += parseFloat(input[i].value);
+
+
+var idvalue = parseFloat(input[i].value);
+
+<?php
+foreach ($servicebrands as $servicebrand ){
+?>
+var servicebrand_id = <?php echo $servicebrand->id; ?>;
+if(servicebrand_id==idvalue){
+    var orgvalue = <?php echo $servicebrand->price;?> ;
+}
+
+<?php
+        }
+ ?>
+          total += orgvalue;
+        }
+      }
+
+
+      document.getElementsByName("total")[0].value =  total.toFixed(0)+ " ريال " ;
+
+
+
+
+
+    }
+    </script>
+
+
+
     @foreach ($servicebrands as $servicebrand )
     <div class="form-check form-check-inline">
         <label class="form-check-label">
-         <input type="checkbox" class="form-check-input" name="servicebrand[]" value="{{$servicebrand->id}}">
+         <input type="checkbox" class="form-check-input" name="servicebrand[]" value="{{$servicebrand->id}}"  onclick="totalIt()" >
          {{$servicebrand->name}}
         </label>
     </div>
     @endforeach
 
-
-
 </div>
+
+
+    <div class="form-group">
+    <label for="name">هزینه کل</label>
+    <input type="text" class="form-control"  autocomplete="off"
+    placeholder=" هزینه کل "  readonly="readonly" type="text" name="total" value="0 ریال " disabled  >
+    </div>
 
 
 

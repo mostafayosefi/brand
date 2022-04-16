@@ -25,7 +25,7 @@
 	<meta property="og:url" content="{{url('/')}}">
 	<meta property="og:site_name" content="{{$setting->title}}">
 	<meta name="twitter:card" content="summary">
- 
+
 
 
 <link rel="stylesheet" href="{{asset('sabt_files/style-rtl.css')}}">
@@ -53,7 +53,7 @@
     <div class="top-menu">
         <div class="container">
             <div class="top-menu-body">
-                <span>ثبت برند میزان ارائه دهنده خدمات ثبت برندها</span>
+                <span>{{$setting->textheader}}</span>
             </div>
         </div>
     </div>

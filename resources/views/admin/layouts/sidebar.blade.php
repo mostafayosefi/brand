@@ -140,13 +140,13 @@
 
 
 
-          <li class="nav-item  {{ isActive(['admin.manegement.spotlites' , 'admin.manegement.comid_index'])}}  ">
+          <li class="nav-item  {{ isActive(['admin.manegement.spotlites' , 'admin.manegement.comid_index' , 'admin.manegement.comid_edit'])}}  ">
             <a class="nav-link" data-toggle="collapse" href="#manegement" role="button" aria-expanded="false" aria-controls="manegement">
                 <i class="link-icon" data-feather="list"></i>
                 <span class="link-title">مدیریت ایندکس   </span>
                 <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
-            <div class="collapse  {{ isShow(['admin.manegement.spotlites' , 'admin.manegement.comid_index'])}}   "  id="manegement">
+            <div class="collapse  {{ isShow(['admin.manegement.spotlites' , 'admin.manegement.comid_index' , 'admin.manegement.comid_edit'])}}   "  id="manegement">
               <ul class="nav sub-menu">
                 <li class="nav-item">
  <a href="{{ route('admin.manegement.spotlites') }}" class="nav-link   {{ isActive(['admin.manegement.spotlites']) }}  ">مدیریت اسپوتلایتها</a>
@@ -159,6 +159,9 @@
                 </li>
                 <li class="nav-item">
  <a href="{{ route('admin.manegement.comid_index' , 'coment') }}" class="nav-link   {{ isActive(['admin.manegement.comid_edit' , ['status'=>'coment' , 'id'] ]) }}  "> کامنت مشتریان  </a>
+                </li>
+                <li class="nav-item">
+ <a href="{{ route('admin.manegement.comid_index' , 'mnglogos') }}" class="nav-link   {{ isActive(['admin.manegement.comid_edit' , ['status'=>'coment' , 'id'] ]) }}  "> مدیریت لوگو مشتریان  </a>
                 </li>
               </ul>
             </div>

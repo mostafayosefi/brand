@@ -54,6 +54,20 @@
    @endif
 
 
+  @if ($comid->status=='mnglogos' )
+
+ @component('admin.layouts.content',[
+    'title'=>' لوگو مشتریان   ',
+    'tabTitle'=>'لوگو مشتریان   ',
+      'breadcrumb' => [['title' => 'مدیریت لوگو مشتریان  ', 'url' => route('admin.manegement.comid_index' , 'mnglogos')  ]  ,
+       ['title' => 'ویرایش لوگو مشتریان  ' , 'class' => 'active'] ,
+       ['title' => $comid->title , 'class' => 'active'] ,
+    ],
+    ])
+
+   @endif
+
+
 
 
     <div class="row">
@@ -98,7 +112,7 @@
                                             <input type="text" class="form-control" id="text" autocomplete="off" placeholder="توضیح" name="text"  value="{{$comid->text}}"  required >
                                             </div>
 
- 
+
 
 
  @include('admin.layouts.table.avatarnul', [  'avatarimage' => $comid->image , 'class'=>'' , 'style' => 'height: 160px;width: 160px;'  ])
@@ -297,6 +311,61 @@
 
 
 
+
+                            @endif
+
+
+
+
+                            @if ($comid->status=='mnglogos')
+
+                            <div class="card-header card-header-border-bottom">
+                                <h4>لوگو مشتری </h4>
+                            </div>
+
+                            <br>
+                            @include('admin.layouts.errors')
+
+                            <form class="forms-sample" method="POST"  action="{{ route('admin.manegement.comid_update' ,  ['status'=>$comid->status ,'id' => $comid->id ] ) }}"
+                                enctype="multipart/form-data" onsubmit="return Validate(this);">
+                                @csrf
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+
+
+
+
+                                        <div class="form-group" >
+                                            <label for="title">نام مشتری</label>
+                                            <input type="text" class="form-control" id="title" autocomplete="off" placeholder="نام مشتری" name="title"  value="{{$comid->title}}"  required >
+                                            </div>
+
+
+                                            <hr>
+
+
+
+ @include('admin.layouts.table.avatarnul', [  'avatarimage' => $comid->image , 'class'=>'' , 'style' => 'height: 160px;width: 160px;'  ])
+
+ <hr>
+                                            <div class="form-group" >
+                                            <label for="exampleInputUsername1"> آپلود لوگو </label>
+                                            <input type="file"     id="exampleInputUsername1" autocomplete="off"  name="image" >
+                                            </div>
+
+
+
+
+
+         @method('PUT')
+                                        <div class="card-footer">
+                                            <button type="submit" class="btn btn-primary float-right">ویرایش</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
 
                             @endif
 

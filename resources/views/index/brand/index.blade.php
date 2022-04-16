@@ -197,7 +197,7 @@
 
     <div class="owl-carousel owl-other-services owl-rtl owl-loaded owl-drag">
 
- 
+
 
     <div class="owl-stage-outer">
         <div class="owl-stage" style="transform: translate3d(3027px, 0px, 0px); transition: all 0.75s ease 0s; width: 5045px;">
@@ -221,9 +221,19 @@
             </div>
 
 
-        </div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="far fa-chevron-right"></i></button><button type="button" role="presentation" class="owl-next"><i class="far fa-chevron-left"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button></div></div>
+        </div>
+        <div class="owl-nav">
+        <button type="button" role="presentation" class="owl-prev"><i class="far fa-chevron-right"></i></button>
+        <button type="button" role="presentation" class="owl-next"><i class="far fa-chevron-left"></i></button>
+    </div>
+    <div class="owl-dots">
+        {{-- <button role="button" class="owl-dot"><span></span></button> --}}
+        <button role="button" class="owl-dot active"><span></span></button>
+    </div></div>
 </section>
 
+
+@if($mnglogos)
 <section class="customer">
     <div class="faq-title">
         <h2>مشتریان ثبت برند بین المللی</h2>
@@ -238,73 +248,36 @@
 
 
 
-        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(1091px, 0px, 0px); transition: all 0.75s ease 0s; width: 3492px;"><div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer2.png')}}" alt="مشتری ثبت تغییرات برند">
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer3.png')}}" alt="ثبت برند برند">
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer4.png')}}" alt="ثبت تغییرات برندها">
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer5.png')}}" alt="افزایش سرمایه برند">
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer6.png')}}" alt="ثبت برندها">
-                        </div>
-                    </div></div><div class="owl-item active" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer1.png')}}" alt="مشتری ثبت برند">
-                        </div>
-                    </div></div><div class="owl-item active" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer2.png')}}" alt="مشتری ثبت تغییرات برند">
-                        </div>
-                    </div></div><div class="owl-item active" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer3.png')}}" alt="ثبت برند برند">
-                        </div>
-                    </div></div><div class="owl-item active" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer4.png')}}" alt="ثبت تغییرات برندها">
-                        </div>
-                    </div></div><div class="owl-item active" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer5.png')}}" alt="افزایش سرمایه برند">
-                        </div>
-                    </div></div><div class="owl-item" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer6.png')}}" alt="ثبت برندها">
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer1.png')}}" alt="مشتری ثبت برند">
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer2.png')}}" alt="مشتری ثبت تغییرات برند">
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer3.png')}}" alt="ثبت برند برند">
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer4.png')}}" alt="ثبت تغییرات برندها">
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
-                        <div class="customer-box">
-                            <img src="{{asset('sabt_files/customer5.png')}}" alt="افزایش سرمایه برند">
-                        </div>
-                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
+        <div class="owl-stage-outer">
+            <div class="owl-stage" style="transform: translate3d(1091px, 0px, 0px); transition: all 0.75s ease 0s; width: 3492px;">
+
+
+
+                @foreach ($mnglogos as $mnglogo )
+
+                <div class="owl-item cloned" style="width: 217.2px; margin-left: 1px;"><div class="items">
+                    <div class="customer-box">
+                        <img src="{{asset($mnglogo->image)}}" alt="{{$mnglogo->title}}"  style="width: 111px; height: 58px;" >
+                    </div>
+                </div></div>
+
+                @endforeach
+
+
+
+
+
+                </div>
+
+                </div>
+
+                <div class="owl-nav disabled">
+                    <button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>
+                    <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
+                </div><div class="owl-dots disabled"></div></div>
     </div>
 </section>
+@endif
 
 
 
