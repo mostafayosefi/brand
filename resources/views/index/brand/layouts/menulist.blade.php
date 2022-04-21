@@ -31,7 +31,7 @@
 <li class="subMenus"><a title="استعلام   " href="#">استعلام<i class="far fa-chevron-down"></i> </a>
     <ul class="sub-menu">
         <li><a title="پیگیری ثبت برند" href="{{ route('index.tracking.brand') }}">پیگیری ثبت برند</a></li>
-        <li><a title="پیگیری ثبت شرکت" href="#">پیگیری ثبت شرکت</a></li>
+        <li><a title="پیگیری ثبت شرکت" href="{{ route('index.tracking.company') }}">پیگیری ثبت شرکت</a></li>
     </ul>
 </li>
 

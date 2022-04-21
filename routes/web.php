@@ -68,7 +68,8 @@ Route::namespace('Auth')->prefix('admin')->group(function () {
             Route::prefix('tracking')->name('tracking.')->group(function () {
                 Route::get('/brand', [TrackingController::class, 'brand'])->name('brand');
                 Route::put('/brand', [TrackingController::class, 'tracking_result'])->name('result');
-            });
+                Route::get('/company', [TrackingController::class, 'company'])->name('company');
+             });
 
 
 

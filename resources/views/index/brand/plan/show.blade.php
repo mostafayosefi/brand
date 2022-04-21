@@ -28,7 +28,7 @@
                     <?php echo $myplan->text; ?>
 
 
-<h2>امکانات ویژه</h2>
+<h2>امکانات پلان</h2>
 <hr>
 
 @if($myplan->company_properties)

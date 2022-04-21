@@ -32,6 +32,7 @@
         <th>  ردیف </th>
         <th>   کاربر </th>
         <th>   برند </th>
+        <th>   هزینه </th>
         <th> تاریخ ثبت </th>
         <th> وضعیت</th>
          <th> حذف</th>
@@ -51,6 +52,8 @@
         <td>{{ $key + 1 }}</td>
         <td>{{$admin->user->name}}</td>
         <td>{{$admin->name}}</td>
+
+        <td> {{flage_price($admin->price)}}</td>
         <td>{{ date_frmat($admin->created_at) }}</td>
 <td> <a href="{{$route_show}}"> @include('admin.layouts.table.getstatus_requestbrand', [$admin ,'route' => ''  ,'type_name' => 'requestbrand'   ]) </a> </td>
 
