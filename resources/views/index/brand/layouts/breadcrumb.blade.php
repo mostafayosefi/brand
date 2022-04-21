@@ -23,9 +23,13 @@
 @endif
                     </ul>
             <a href=""><h1 class="blogInfo-title">{{$tabTitle}}</h1></a>
+
+{{--
             <div class="blogInfo-box">
                 <span class="blogInfo-time"><i class="fas fa-clock"></i>{{ date_frmat(time_fake(now(),28)) }}</span>
              </div>
+ --}}
+
         </div>
 
     </section>

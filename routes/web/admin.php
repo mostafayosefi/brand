@@ -24,9 +24,13 @@ use App\Http\Controllers\Admin\SpotliteController;
 use App\Http\Controllers\Admin\TransferController;
 use App\Http\Controllers\Admin\NameserverController;
 use App\Http\Controllers\Admin\CategoryapiController;
+use App\Http\Controllers\Admin\CompanyPlanController;
 use App\Http\Controllers\Admin\RequestbrandController;
 use App\Http\Controllers\Admin\ServicebrandController;
 use App\Http\Controllers\Admin\CategorybrandController;
+use App\Http\Controllers\Admin\CompanyRequestController;
+use App\Http\Controllers\Admin\CompanyServiceController;
+use App\Http\Controllers\Admin\CompanyTypeController;
 use App\Http\Controllers\Admin\ContentDomainController;
 use App\Http\Controllers\Admin\GetwaypaymentController;
 
@@ -356,6 +360,75 @@ Route::prefix('requestbrand')
     Route::delete('/{id}', [RequestbrandController::class, 'destroy'])->name('destroy');
 
 });
+
+
+
+Route::prefix('company')->name('company.')->group(function () {
+
+    Route::prefix('plan')->name('plan.')->group(function () {
+
+      Route::get('/indexplan', [CompanyPlanController::class, 'index'])->name('index');
+      Route::get('/createplan', [CompanyPlanController::class, 'create'])->name('create');
+      Route::post('/', [CompanyPlanController::class, 'store'])->name('store');
+      Route::get('/{id}/editplan', [CompanyPlanController::class, 'edit'])->name('edit');
+      Route::get('/{id}/showplan', [CompanyPlanController::class, 'show'])->name('show');
+      Route::put('/{id}', [CompanyPlanController::class, 'update'])->name('update');
+      Route::put('/{id}/status', [CompanyPlanController::class, 'status'])->name('status');
+      Route::delete('/{id}', [CompanyPlanController::class, 'destroy'])->name('destroy');
+      Route::delete('/property/{id}', [CompanyPlanController::class, 'destroyproperty'])->name('destroy.property');
+
+     });
+
+
+    Route::prefix('type')->name('type.')->group(function () {
+
+      Route::get('/indextype', [CompanyTypeController::class, 'index'])->name('index');
+      Route::get('/createtype', [CompanyTypeController::class, 'create'])->name('create');
+      Route::post('/', [CompanyTypeController::class, 'store'])->name('store');
+      Route::get('/{id}/edittype', [CompanyTypeController::class, 'edit'])->name('edit');
+      Route::get('/{id}/showtype', [CompanyTypeController::class, 'show'])->name('show');
+      Route::put('/{id}', [CompanyTypeController::class, 'update'])->name('update');
+      Route::put('/{id}/status', [CompanyTypeController::class, 'status'])->name('status');
+      Route::delete('/{id}', [CompanyTypeController::class, 'destroy'])->name('destroy');
+      Route::delete('/property/{id}', [CompanyTypeController::class, 'destroyproperty'])->name('destroy.property');
+
+     });
+
+
+     Route::prefix('service')
+     ->name('service.')->group(function () {
+
+         Route::get('/indexservicecompany', [CompanyServiceController::class, 'index'])->name('index');
+         Route::get('/servicecompany', [CompanyServiceController::class, 'create'])->name('create');
+         Route::post('/', [CompanyServiceController::class, 'store'])->name('store');
+         Route::get('/{id}/editservicecompany', [CompanyServiceController::class, 'edit'])->name('edit');
+         Route::put('/{id}', [CompanyServiceController::class, 'update'])->name('update');
+         Route::delete('/{id}', [CompanyServiceController::class, 'destroy'])->name('destroy');
+
+     });
+
+
+     Route::prefix('request')
+     ->name('request.')->group(function () {
+
+         Route::get('/indexrequestcompany', [CompanyRequestController::class, 'index'])->name('index');
+         Route::get('/createrequestcompany', [CompanyRequestController::class, 'create'])->name('create');
+         Route::post('/', [CompanyRequestController::class, 'store'])->name('store');
+         Route::get('/{id}/editrequestcompany', [CompanyRequestController::class, 'edit'])->name('edit');
+         Route::get('/{id}/showrequestcompany', [CompanyRequestController::class, 'show'])->name('show');
+         Route::put('/{id}', [CompanyRequestController::class, 'update'])->name('update');
+         Route::put('/{id}/{status}/change_status', [CompanyRequestController::class, 'status'])->name('status');
+         Route::delete('/{id}', [CompanyRequestController::class, 'destroy'])->name('destroy');
+
+     });
+
+
+
+
+
+
+
+  });
 
 
 

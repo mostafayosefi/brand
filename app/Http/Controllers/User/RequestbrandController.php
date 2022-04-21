@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\User;
 use App\Models\Payment;
 use App\Models\Filebrand;
+use Illuminate\Support\Str;
 use App\Models\Requestbrand;
 use App\Models\Servicebrand;
 use Illuminate\Http\Request;
@@ -46,6 +47,7 @@ class RequestbrandController extends Controller
 
         $data = $request->all();
         $data['status']='waiting';
+        $data['random']= Str::random(8);
         $data['user_id']  = Auth::guard('user')->user()->id;
         $requestbrand=Requestbrand::create($data);
         $image_uploader_multiple =  uploadFileArray($request->image_uploader_multiple,'images/requestbrands');

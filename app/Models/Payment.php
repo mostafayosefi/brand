@@ -9,7 +9,7 @@ class Payment extends Model
 {
 
     protected $fillable = [
-        'renew_id',   'order_id',   'type', 'status', 'textUser', 'textAdmin', 'transfer_id', 'requestbrand_id' ,
+        'renew_id',   'order_id',   'type', 'status', 'textUser', 'textAdmin', 'transfer_id', 'requestbrand_id' ,'company_request_id' ,
     ];
 
 
@@ -32,6 +32,11 @@ class Payment extends Model
     public function requestbrand()
     {
         return $this->belongsTo(Requestbrand::class);
+    }
+
+    public function company_request()
+    {
+        return $this->belongsTo(CompanyRequest::class);
     }
 
 }

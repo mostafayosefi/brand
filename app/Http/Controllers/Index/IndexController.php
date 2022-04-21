@@ -13,6 +13,7 @@ use App\Models\Spotlite;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use App\Models\CompanyPlan;
 use App\Models\Faq;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
@@ -67,8 +68,24 @@ class IndexController extends Controller
 
     public function page($title  ){
         $mypage=Page::where('title' , $title)->first();
-        // return view('index.page.mypage' , compact(['mypage']));
         return view('index.brand.page.index' , compact(['mypage']));
+    }
+
+
+    public function plan($name='all'){
+
+
+        if($name=='all'){
+            $myplan= CompanyPlan::all();
+            return view('index.brand.plan.index' , compact(['myplan']));
+        }else{
+            $myplan=CompanyPlan::where('name' , $name)->first();
+            return view('index.brand.plan.show' , compact(['myplan']));
+        }
+
+
+
+
     }
 
     public function support(){

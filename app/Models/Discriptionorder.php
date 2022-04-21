@@ -10,7 +10,7 @@ class Discriptionorder extends Model
 
     protected $fillable = [
         'order_id',  'renew_id', 'user_id', 'by' , 'operator' , 'text' , 'flag' ,'active' , 'transfer_id' ,
-        'requestbrand_id' ,
+        'requestbrand_id' , 'company_request_id' ,
     ];
 
     public function user() {
@@ -32,5 +32,12 @@ class Discriptionorder extends Model
     public function requestbrand() {
         return $this->belongsTo(Requestbrand::class );
     }
+
+
+    public function company_request()
+    {
+        return $this->belongsTo(CompanyRequest::class);
+    }
+
 
 }

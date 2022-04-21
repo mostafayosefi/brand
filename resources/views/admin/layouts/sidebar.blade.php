@@ -170,6 +170,28 @@
 
 
 
+          <li class="nav-item  {{ isActive(['user.ticket.create' , 'user.ticket.index'])}}   ">
+            <a class="nav-link" data-toggle="collapse" href="#ticket" role="button" aria-expanded="false" aria-controls="ticket">
+              <i class="link-icon" data-feather="list"></i>
+              <span class="link-title">مدیریت تیکتها   </span>
+              @include('index.layouts.table.getstatus', [ 'route' => ''  ,'type_name' => 'count_read_ticket'   ,'number' => $count_ticket_unread_admin   ])
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse  {{ isShow(['user.ticket.create' , 'user.ticket.index'])}}     "  id="ticket">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+ <a href="{{ route('admin.ticket.index') }}" class="nav-link   {{ isActive(['user.ticket.index']) }}  "> مشاهده تیکت ها
+    @include('index.layouts.table.getstatus', [ 'route' => ''  ,'type_name' => 'count_read_ticket'   ,'number' => $count_ticket_unread_admin   ])  </a>
+</li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="nav-item nav-category">مدیریت خدمات ثبت برند</li>
+
+
+
           <li class="nav-item  {{ isActive(['admin.servicebrand.index' , 'admin.servicebrand.create', 'admin.servicebrand.edit'])}}  ">
             <a class="nav-link" data-toggle="collapse" href="#servicebrand" role="button" aria-expanded="false" aria-controls="servicebrand">
               <i class="link-icon" data-feather="list"></i>
@@ -211,26 +233,6 @@
           </li>
 
 
-          <li class="nav-item  {{ isActive(['user.ticket.create' , 'user.ticket.index'])}}   ">
-            <a class="nav-link" data-toggle="collapse" href="#ticket" role="button" aria-expanded="false" aria-controls="ticket">
-              <i class="link-icon" data-feather="list"></i>
-              <span class="link-title">مدیریت تیکتها   </span>
-              @include('index.layouts.table.getstatus', [ 'route' => ''  ,'type_name' => 'count_read_ticket'   ,'number' => $count_ticket_unread_admin   ])
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse  {{ isShow(['user.ticket.create' , 'user.ticket.index'])}}     "  id="ticket">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
- <a href="{{ route('admin.ticket.index') }}" class="nav-link   {{ isActive(['user.ticket.index']) }}  "> مشاهده تیکت ها
-    @include('index.layouts.table.getstatus', [ 'route' => ''  ,'type_name' => 'count_read_ticket'   ,'number' => $count_ticket_unread_admin   ])  </a>
-</li>
-              </ul>
-            </div>
-          </li>
-
-
-          <li class="nav-item nav-category">مدیریت خدمات برند</li>
-
 
           <li class="nav-item  {{ isActive(['admin.wallet.index' , 'admin.wallet.create'])}}  ">
             <a class="nav-link" data-toggle="collapse" href="#wallet" role="button" aria-expanded="false" aria-controls="wallet">
@@ -269,6 +271,90 @@
  <a href="{{ route('admin.requestbrand.create') }}" class="nav-link   {{ isActive(['admin.requestbrand.create']) }}  ">ثبت سفارش جدید  </a>
                 </li>
 
+              </ul>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item nav-category">مدیریت خدمات ثبت شرکت</li>
+
+
+          <li class="nav-item  {{ isActive(['admin.company.plan.index' , 'admin.company.plan.create', 'admin.company.plan.edit'])}}  ">
+            <a class="nav-link" data-toggle="collapse" href="#plan" role="button" aria-expanded="false" aria-controls="plan">
+              <i class="link-icon" data-feather="list"></i>
+              <span class="link-title">مدیریت پلان شرکت</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse  {{ isShow(['admin.company.plan.index' , 'admin.company.plan.create', 'admin.company.plan.edit'])}}   "  id="plan">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+ <a href="{{ route('admin.company.plan.index') }}" class="nav-link   {{ isActive(['admin.company.plan.index', 'admin.company.plan.edit']) }}  ">مشاهده پلانهای شرکت</a>
+                </li>
+
+                <li class="nav-item">
+ <a href="{{ route('admin.company.plan.create') }}" class="nav-link   {{ isActive(['admin.company.plan.create']) }}  ">ثبت پلان شرکت</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="nav-item  {{ isActive(['admin.company.type.index' , 'admin.company.type.create', 'admin.company.type.edit'])}}  ">
+            <a class="nav-link" data-toggle="collapse" href="#type" role="button" aria-expanded="false" aria-controls="type">
+              <i class="link-icon" data-feather="list"></i>
+              <span class="link-title">مدیریت انواع شرکت</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse  {{ isShow(['admin.company.type.index' , 'admin.company.type.create', 'admin.company.type.edit'])}}   "  id="type">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+ <a href="{{ route('admin.company.type.index') }}" class="nav-link   {{ isActive(['admin.company.type.index', 'admin.company.type.edit']) }}  ">مشاهده انواع شرکت </a>
+                </li>
+
+                <li class="nav-item">
+ <a href="{{ route('admin.company.type.create') }}" class="nav-link   {{ isActive(['admin.company.type.create']) }}  ">ثبت نوع شرکت</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item  {{ isActive(['admin.company.service.index' , 'admin.company.service.create', 'admin.company.service.edit'])}}  ">
+            <a class="nav-link" data-toggle="collapse" href="#servicecompany" role="button" aria-expanded="false" aria-controls="servicecompany">
+              <i class="link-icon" data-feather="list"></i>
+              <span class="link-title">مدیریت خدمات شرکت</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse  {{ isShow(['admin.company.service.index' , 'admin.company.service.create', 'admin.company.service.edit'])}}   "  id="servicecompany">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+ <a href="{{ route('admin.company.service.index') }}" class="nav-link   {{ isActive(['admin.company.service.index', 'admin.company.service.edit']) }}  ">مشاهده خدمات شرکت </a>
+                </li>
+
+                <li class="nav-item">
+ <a href="{{ route('admin.company.service.create') }}" class="nav-link   {{ isActive(['admin.company.service.create']) }}  ">ثبت خدمات شرکت</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item  {{ isActive(['admin.company.request.index' , 'admin.company.request.create', 'admin.company.request.edit'])}}  ">
+            <a class="nav-link" data-toggle="collapse" href="#requestcompany" role="button" aria-expanded="false" aria-controls="requestcompany">
+              <i class="link-icon" data-feather="list"></i>
+              <span class="link-title">مدیریت سفارشهای شرکت</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse  {{ isShow(['admin.company.request.index' , 'admin.company.request.create', 'admin.company.request.edit'])}}   "  id="requestcompany">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+ <a href="{{ route('admin.company.request.index') }}" class="nav-link   {{ isActive(['admin.company.request.index', 'admin.company.request.edit']) }}  ">مشاهده سفارشهای ثبت شرکت </a>
+                </li>
+
+                <li class="nav-item">
+ <a href="{{ route('admin.company.request.create') }}" class="nav-link   {{ isActive(['admin.company.request.create']) }}  ">ثبت سفارش شرکت</a>
+                </li>
               </ul>
             </div>
           </li>

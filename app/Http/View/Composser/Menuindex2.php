@@ -2,6 +2,7 @@
 
 namespace App\Http\View\Composser;
 
+use App\Models\CompanyPlan;
 use App\Models\Page;
 use App\Models\Setting;
 use App\Models\Ticket;
@@ -12,10 +13,11 @@ class Menuindex2{
     public function compose(View $view){
 
         $listpages=Page::idDescending()->get();
+        $listplanes=CompanyPlan::all();
         $setting=Setting::find(1);
 
 
-$view->with(['listpages' => $listpages , 'setting' => $setting ]);
+$view->with(['listpages' => $listpages , 'setting' => $setting , 'listplanes' => $listplanes ]);
 
 
     }

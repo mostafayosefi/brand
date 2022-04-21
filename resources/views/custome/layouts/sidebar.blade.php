@@ -112,6 +112,27 @@
           </li>
 
 
+          <li class="nav-item  {{ isActive(['user.company.request.index' , 'user.company.request.create', 'user.company.request.edit', 'user.company.request.show'])}}  ">
+            <a class="nav-link" data-toggle="collapse" href="#company_request" role="button" aria-expanded="false" aria-controls="company_request">
+              <i class="link-icon" data-feather="list"></i>
+              <span class="link-title">مدیریت درخواست شرکت        </span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse  {{ isShow(['user.company.request.index' , 'user.company.request.create', 'user.company.request.edit', 'user.company.request.show'])}}   "  id="company_request">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+ <a href="{{ route('user.company.request.index') }}" class="nav-link   {{ isActive(['user.company.request.index', 'user.company.request.edit', 'user.company.request.show']) }}  ">مشاهده درخواستهای شرکت   </a>
+                </li>
+
+                <li class="nav-item">
+ <a href="{{ route('user.company.request.create') }}" class="nav-link   {{ isActive(['user.company.request.create']) }}  ">درخواست ثبت شرکت</a>
+                </li>
+
+              </ul>
+            </div>
+          </li>
+
+
 
       </ul>
     </div>

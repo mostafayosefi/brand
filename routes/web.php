@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
@@ -29,7 +30,9 @@ use App\Http\Controllers\Index\SitemapXmlController;
 use App\Http\Controllers\User\RequestbrandController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\User\CompanyRequestController;
 use App\Http\Controllers\Auth\ConfirmPasswordController;
+use App\Http\Controllers\Index\TrackingController;
 
 Route::namespace('Auth')->prefix('admin')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin');
@@ -48,6 +51,7 @@ Route::namespace('Auth')->prefix('admin')->group(function () {
         Route::namespace('Index')->name('index.')->group(function () {
             Route::get('/', [IndexController::class, 'index'])->name('home');
             Route::get('/service/{title}', [IndexController::class, 'page'])->name('page');
+            Route::get('/plan/{name?}', [IndexController::class, 'plan'])->name('plan');
             Route::get('/contact-us', [IndexController::class, 'support'])->name('support');
             Route::post('/contact-us', [IndexController::class, 'supportPost'])->name('support.post');
             Route::get('/user/register', [LoginuserController::class, 'register'])->name('user.register');
@@ -58,6 +62,14 @@ Route::namespace('Auth')->prefix('admin')->group(function () {
             Route::get('/sitemap.xml', [SitemapXmlController::class, 'sitemap']);
 
             Route::get('/faqs', [IndexController::class, 'faqs'])->name('faqs');
+
+
+
+            Route::prefix('tracking')->name('tracking.')->group(function () {
+                Route::get('/brand', [TrackingController::class, 'brand'])->name('brand');
+                Route::put('/brand', [TrackingController::class, 'tracking_result'])->name('result');
+            });
+
 
 
 
@@ -234,12 +246,44 @@ Route::namespace('Auth')->prefix('admin')->group(function () {
                 Route::get('/{id}/editrequest', [RequestbrandController::class, 'edit'])->name('edit');
                 Route::get('/{id}/showrequest', [RequestbrandController::class, 'show'])->name('show');
                 Route::put('/{id}', [RequestbrandController::class, 'update'])->name('update');
-                Route::put('/{id}/status', [RequestbrandController::class, 'status'])->name('status');
+
                 Route::put('/{id}/payment', [RequestbrandController::class, 'payment'])->name('payment');
                 Route::delete('/{id}', [RequestbrandController::class, 'destroy'])->name('destroy');
 
 
             });
+
+
+
+
+Route::prefix('company')->name('company.')->group(function () {
+
+
+Route::prefix('request')->name('request.')->group(function () {
+
+
+    Route::get('/indexrequestcompany', [CompanyRequestController::class, 'index'])->name('index');
+    Route::get('/{plan?}/createrequestcompany', [CompanyRequestController::class, 'create'])->name('create');
+    Route::post('/', [CompanyRequestController::class, 'store'])->name('store');
+    Route::get('/{id}/editrequestcompany', [CompanyRequestController::class, 'edit'])->name('edit');
+    Route::get('/{id}/showrequestcompany', [CompanyRequestController::class, 'show'])->name('show');
+    Route::put('/{id}', [CompanyRequestController::class, 'update'])->name('update');
+    Route::put('/{id}/status', [CompanyRequestController::class, 'status'])->name('status');
+    Route::put('/{id}/payment', [CompanyRequestController::class, 'payment'])->name('payment');
+    Route::delete('/{id}', [CompanyRequestController::class, 'destroy'])->name('destroy');
+
+});
+
+
+
+});
+
+
+
+
+
+
+
 
 
 

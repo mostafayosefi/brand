@@ -7,6 +7,7 @@ use App\Models\Domain;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\CompanyRequest;
 use App\Models\Renew;
 use App\Models\Requestbrand;
 use App\Models\Subcategorybrand;
@@ -45,6 +46,11 @@ class FetchController extends Controller
         if($oper=='requestbrand'){
             $order=Requestbrand::find($id);
         }
+        if($oper=='company_request'){
+            $order=CompanyRequest::find($id);
+        }
+
+
         return view('custome.fetch.payment' , compact(['value' , 'order'  , 'oper'  ]));
     }
 

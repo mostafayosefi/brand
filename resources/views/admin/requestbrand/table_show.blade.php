@@ -83,6 +83,10 @@
             <td> {{ $requestbrand->email }}</td>
         </tr>
          <tr>
+            <td>کدپیگیری   </td>
+            <td> {{ $requestbrand->random }}</td>
+        </tr>
+         <tr>
             <td>شماره تلفن   </td>
             <td> {{ $requestbrand->tellir }}</td>
         </tr>

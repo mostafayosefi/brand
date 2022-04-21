@@ -20,11 +20,22 @@
         @endforeach
     </ul>
 </li>
+<li class="subMenus"><a title=" پلانهای شرکت " href="{{ route('index.plan') }}"> پلانهای شرکت  <i class="far fa-chevron-down"></i> </a>
+    <ul class="sub-menu">
+        @foreach ($listplanes as $listplane )
+        <li><a title="{{$listplane->name}}" href="{{ route('index.plan', $listplane->name) }}">{{$listplane->name}}</a></li>
+        @endforeach
+    </ul>
+</li>
 
-<li><a title=" استعلام سفارش  " rel="nofollow" href="{{ route('index.home') }}">  استعلام سفارش  </a></li>
+<li class="subMenus"><a title="استعلام   " href="#">استعلام<i class="far fa-chevron-down"></i> </a>
+    <ul class="sub-menu">
+        <li><a title="پیگیری ثبت برند" href="{{ route('index.tracking.brand') }}">پیگیری ثبت برند</a></li>
+        <li><a title="پیگیری ثبت شرکت" href="#">پیگیری ثبت شرکت</a></li>
+    </ul>
+</li>
 
-
-<li><a title="یوالات متداول  " rel="nofollow" href="{{ route('index.faqs') }}">سوالات متداول  </a></li>
+<li><a title="سوالات متداول  " rel="nofollow" href="{{ route('index.faqs') }}">سوالات متداول  </a></li>
 <li><a title="تماس با ما" rel="nofollow" href="{{ route('index.support') }}">تماس با ما</a></li>
 </ul></div>
 <div class="header-contact">

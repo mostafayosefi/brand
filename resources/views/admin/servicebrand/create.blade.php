@@ -46,10 +46,14 @@
                                                 placeholder="نام خدمات برند" name="name" value="{{ old('name') }}">
                                         </div>
 
+
+@include('admin.layouts.table.java_price')
+
                                         <div class="form-group">
                                             <label for="price">هزینه خدمات برند (به ریال)</label>
                                             <input type="text" class="form-control" id="price" autocomplete="off"
-                                                placeholder="هزینه خدمات برند" name="price" value="{{ old('price') }}">
+                                                placeholder="هزینه خدمات برند" name="price" value="{{ old('price') }}"
+                                                onkeyup="separateNum(this.value,this);"  >
                                         </div>
 
 

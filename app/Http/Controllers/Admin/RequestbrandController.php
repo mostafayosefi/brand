@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use App\Models\Filebrand;
 use App\Rules\ValidateRule;
+use Illuminate\Support\Str;
 use App\Models\Requestbrand;
 use App\Models\Servicebrand;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class RequestbrandController extends Controller
         $servicebrands=Servicebrand::all();
         $categorybrands=Categorybrand::all();
         $subcategorybrands=Subcategorybrand::all();
-        return view('admin.requestbrand.create' , compact([ 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' ]) );
+        return view('admin.company.service.create' , compact([ 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' ]) );
     }
 
     public function edit($id){
@@ -45,6 +46,7 @@ class RequestbrandController extends Controller
         $data = $request->all();
         // $data['status']='register';
         $data['status']='waiting';
+        $data['random']= Str::random(8);
         $requestbrand=Requestbrand::create($data);
         $image_uploader_multiple =  uploadFileArray($request->image_uploader_multiple,'images/requestbrands');
         if($image_uploader_multiple){

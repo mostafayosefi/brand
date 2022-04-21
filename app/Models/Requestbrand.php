@@ -14,7 +14,7 @@ class Requestbrand extends Model
         'name', 'email' , 'tellir', 'adresir', 'codepir',
         'tellin', 'adresin', 'codepin', 'birthday',
         'reach','before','status', 'user_id', 'subcategorybrand_id',
-         'fromshow' , 'toshow' ,'price' ,
+         'fromshow' , 'toshow' ,'price' ,'random' ,
     ];
 
 

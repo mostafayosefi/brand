@@ -120,5 +120,11 @@ class User extends Authenticatable
     }
 
 
+    public function company_requests()
+    {
+        return $this->hasMany(CompanyRequest::class , 'user_id' );
+    }
+
+
 
 }

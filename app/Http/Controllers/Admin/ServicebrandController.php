@@ -35,6 +35,7 @@ class ServicebrandController extends Controller
         ]);
         $data = $request->all();
 
+        $data['price'] = str_rep_price($data['price']);
        Servicebrand::create($data);
        Alert::success('با موفقیت ثبت شد', 'اطلاعات جدید با موفقیت ثبت شد');
         return redirect()->route('admin.servicebrand.index');
@@ -55,6 +56,8 @@ class ServicebrandController extends Controller
         ]);
         $servicebrand=Servicebrand::find($id);
         $data = $request->all();
+
+        $data['price'] = str_rep_price($data['price']);
         $servicebrand->update($data);
         Alert::success('با موفقیت ویرایش شد', 'اطلاعات با موفقیت ویرایش شد');
         return back();
@@ -66,7 +69,7 @@ class ServicebrandController extends Controller
         Alert::info('با موفقیت حذف شد', 'اطلاعات با موفقیت حذف شد');
         return back();
     }
- 
+
 
 
 }

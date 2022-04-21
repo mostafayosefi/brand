@@ -17,6 +17,7 @@ use App\Models\Checkdomain;
 use App\Rules\ValidateLink;
 use App\Rules\ValidateRule;
 use Illuminate\Support\Str;
+use App\Models\Requestbrand;
 use App\Models\Servicebrand;
 use Illuminate\Http\Request;
 use Morilog\Jalali\Jalalian;
@@ -25,10 +26,13 @@ use App\Models\Categorybrand;
 use App\Models\ContentDomain;
 use App\Models\Loginhistorie;
 use Hekmatinasser\Verta\Verta;
+use App\Models\CompanyProperty;
 use App\Models\Discriptionorder;
 use App\Models\Listservicebrand;
-use App\Models\Requestbrand;
 use App\Models\Subcategorybrand;
+use App\Models\CompanyListService;
+use App\Models\CompanyRequest;
+use App\Models\CompanyService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -206,19 +210,35 @@ if(! function_exists('date_frmat') ) {
 if(! function_exists('storelistbrands') ) {
     function storelistbrands($requestbrand_id,$request_servicebrand){
 
-
         $servicebrands=Servicebrand::all();
         foreach($servicebrands as $servicebrand){
              $listbrand =  Listservicebrand::create([ 'requestbrand_id'   => $requestbrand_id,
             'servicebrand_id'     => $servicebrand->id, 'show' => 0, ]);
         }
-
         foreach($request_servicebrand as  $key =>  $servicebrand){
         $listbrand=Listservicebrand::where([ ['servicebrand_id' ,   $servicebrand ],
         ['requestbrand_id' ,   $requestbrand_id ],  ])->update([ 'show' => 1 ]);
         }
 
 
+    }
+}
+
+
+
+
+if(! function_exists('storelistcompany') ) {
+    function storelistcompany($company_request_id,$company_services){
+
+        $companyservices=CompanyService::all();
+        foreach($companyservices as $companyservice){
+             $listcompany =  CompanyListService::create([ 'company_request_id'   => $company_request_id,
+            'company_service_id'     => $companyservice->id, 'show' => 0, ]);
+        }
+        foreach($company_services as  $key =>  $company_service){
+        $listcompany=CompanyListService::where([ ['company_service_id' ,   $company_service ],
+        ['company_request_id' ,   $company_request_id ],  ])->update([ 'show' => 1 ]);
+        }
 
 
     }
@@ -239,6 +259,26 @@ if(! function_exists('sumpricereqbrand') ) {
 
         return $price;
 
+
+    }
+}
+
+
+if(! function_exists('sumpricereqcompany') ) {
+    function sumpricereqcompany($id){
+
+        $company_list_services=CompanyListService::where([ ['company_request_id' ,   $id ],
+        ['show' ,   1 ],  ])->get();
+
+        $company_request=CompanyRequest::find($id);
+
+        $price=$company_request->company_plan->price;
+
+        foreach($company_list_services as $company_list_service){
+           $price = $company_list_service->company_service->price + $price;
+        }
+
+        return $price;
 
 
     }
@@ -961,6 +1001,7 @@ return $personJSON = response()->json([
             $data['text']=$text;
             $data['active']=$active;
             if($operator=='requestbrand'){  $data['requestbrand_id']=$id;  }
+            if($operator=='company_request'){  $data['company_request_id']=$id;  }
 
 
             Discriptionorder::create($data);
@@ -1001,6 +1042,30 @@ if($myfunc=='text'){ return $messagetext; }
 
         }
     }
+
+    if(! function_exists('insertarray') ) {
+        function insertarray($feild_name , $mymodel , $id  )
+        {
+
+
+            foreach($feild_name as $quan) {
+                if($quan != null){
+
+
+                if($mymodel == 'CompanyProperty'){
+                  CompanyProperty::create([ 'name' => $quan , 'company_plan_id'=>$id ]);
+                }
+
+
+
+                }  }
+
+
+        }
+    }
+
+
+
 
 
     if(! function_exists('flage_price') ) {
@@ -1201,7 +1266,7 @@ $exit=number_format($price).' ريال ';    return  $exit;
 
 
 
-            if($data['oper']=='requestbrand'){
+            if(($data['oper']=='requestbrand')||($data['oper']=='company_request')){
 
                 if($data['type']=='offline'){
                     Alert::success('پرداخت غیر مستقیم جهت ثبت برند با موفقیت ثبت شد ', 'پرداخت غیرمستقیم جهت تایید سفارش ثبت برند ارسال شد      ');
@@ -1235,6 +1300,7 @@ $exit=number_format($price).' ريال ';    return  $exit;
 
 
                 }
+
 
 
 
