@@ -20,13 +20,8 @@
         @endforeach
     </ul>
 </li>
-<li class="subMenus"><a title=" پلانهای شرکت " href="{{ route('index.plan') }}"> پلانهای شرکت  <i class="far fa-chevron-down"></i> </a>
-    <ul class="sub-menu">
-        @foreach ($listplanes as $listplane )
-        <li><a title="{{$listplane->name}}" href="{{ route('index.plan', $listplane->name) }}">{{$listplane->name}}</a></li>
-        @endforeach
-    </ul>
-</li>
+
+<li><a title="پلانهای شرکت  " rel="nofollow" href="{{ route('index.plan') }}">پلانهای شرکت  </a></li>
 
 <li class="subMenus"><a title="استعلام   " href="#">استعلام<i class="far fa-chevron-down"></i> </a>
     <ul class="sub-menu">

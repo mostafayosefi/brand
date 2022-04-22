@@ -60,6 +60,10 @@
                                                  >{{ old('text') }}</textarea>
                                         </div>
 
+                                        @include('admin.layouts.table.add_input_array', [   'name_select' => 'امکانات' ,
+                                        'required'=>'required'  , 'index_id'=>'feild_name[]' ])
+
+ 
 @include('admin.layouts.table.java_price')
 
                                         <div class="form-group">
@@ -67,6 +71,7 @@
                                             <input type="text" class="form-control" id="price" autocomplete="off"
                                                 placeholder="هزینه پلان شرکت" name="price"  onkeyup="separateNum(this.value,this);"    value="{{ old('price') }}">
                                         </div>
+
 
 
 
