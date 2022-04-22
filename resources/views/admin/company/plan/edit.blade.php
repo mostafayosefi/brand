@@ -102,7 +102,7 @@
 
                                         <div class="form-group">
                                             <label for="price">هزینه پلان شرکت (به ریال)</label>
-                                            <input type="text" class="form-control" id="price" autocomplete="off"  onkeyup="separateNum(this.value,this
+                                            <input type="text" class="form-control" id="price" autocomplete="off" onkeyup="separateNum(this.value,this);"  
                                                 placeholder="هزینه پلان شرکت" name="price" value="{{$company_plan->price}}">
                                         </div>
 

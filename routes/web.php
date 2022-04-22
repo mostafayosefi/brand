@@ -309,6 +309,8 @@ Route::prefix('fetch')
 
     Route::get('/requestbrand/{order}/{value}', [FetchController::class, 'requestbrand'])->name('requestbrand');
 
+    Route::get('/subcategorybrand/{order}/{value}', [FetchController::class, 'subcategorybrand'])->name('subcategorybrand');
+
 
 
 });

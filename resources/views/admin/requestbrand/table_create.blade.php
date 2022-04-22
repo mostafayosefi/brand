@@ -1,7 +1,13 @@
 
 @slot('style')
 
+
+
+
+
 <link rel="stylesheet" href="{{ asset('template/assets/vendors/select2/select2.min.css') }}">
+
+<link rel="stylesheet" href="{{ asset('template/assets/css/demo_1/style.css') }}">
 
 <script>
     function fetch_myselect_4(vall){
@@ -10,6 +16,17 @@
             url: '/fetch/requestbrand/0/'+vall+'',
         data: {get_option:vall},
         success: function (response) {document.getElementById("view_mycategorybrand").innerHTML=response;}
+    });
+        }
+</script>
+
+<script>
+    function fetch_myselect_5(valle){
+        var valle = document.getElementById("view_mycategorybrand").value;$.ajax({
+            type: 'get',
+            url: '/fetch/subcategorybrand/0/'+valle+'',
+        data: {get_option:valle},
+        success: function (response) {document.getElementById("view_mysubcategorybrand").innerHTML=response;}
     });
         }
 </script>
@@ -68,21 +85,24 @@
 
                                         <div class="col-md-12">
                                             <label for="categorybrand">   زیرگروه دسته بندی برند     </label>
-                                            <select name="subcategorybrand_id"
-                                            class="elementor-field elementor-size-sm  elementor-field-textual"
-                                            placeholder=""   aria-required="true"    style="font-size: 18px;"   id="view_mycategorybrand"   >
+                                            <select name="subcategorybrand_id"  multiple="multiple"
+                                            class="js-example-basic-multiple w-100"
+                                            placeholder=""   aria-required="true"    style="font-size: 18px;"    onchange="fetch_myselect_5(this.value);"   id="view_mycategorybrand"   >
 
                                             <option value="">لطفا  زیرگروه دسته برند را انتخاب نمایید  </option>
-
-
-
 
                                         </select>
                                         </div>
 
-
-
                                         </div>
+
+
+                                        <div class="form-group row"  id="view_mysubcategorybrand" >
+                                            <div class="col-md-12">
+
+                                    </div>
+
+                                </div>
 
 
 
@@ -364,7 +384,17 @@ if(servicebrand_id==idvalue){
 
                               @slot('script')
 
-                              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+ 
+
+
+
+	<script src="{{ asset('template/assets/vendors/select2/select2.min.js') }}"></script>
+
+
+	<script src="{{ asset('template/assets/js/select2.js') }}"></script>
+
+
+                              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js') }}"></script>
                               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
                               <script>

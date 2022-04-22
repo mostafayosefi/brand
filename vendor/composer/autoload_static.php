@@ -223,6 +223,7 @@ class ComposerStaticInit6d46fb56d0e07884ef7776463e126e1c
             'Asm89\\Stack\\' => 12,
             'App\\' => 4,
             'Anhskohbo\\NoCaptcha\\' => 20,
+            'Anetwork\\Validation\\' => 20,
         ),
     );
 
@@ -671,6 +672,10 @@ class ComposerStaticInit6d46fb56d0e07884ef7776463e126e1c
         array (
             0 => __DIR__ . '/..' . '/anhskohbo/no-captcha/src',
         ),
+        'Anetwork\\Validation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/anetwork/validation/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -691,6 +696,9 @@ class ComposerStaticInit6d46fb56d0e07884ef7776463e126e1c
     );
 
     public static $classMap = array (
+        'Anetwork\\Validation\\PersianValidationServiceProvider' => __DIR__ . '/..' . '/anetwork/validation/src/PersianValidationServiceProvider.php',
+        'Anetwork\\Validation\\ValidationMessages' => __DIR__ . '/..' . '/anetwork/validation/src/ValidationMessages.php',
+        'Anetwork\\Validation\\ValidationRules' => __DIR__ . '/..' . '/anetwork/validation/src/ValidationRules.php',
         'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/Facades/NoCaptcha.php',
         'Anhskohbo\\NoCaptcha\\NoCaptcha' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptcha.php',
         'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptchaServiceProvider.php',

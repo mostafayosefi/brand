@@ -25,7 +25,7 @@ class CompanyRequestController extends Controller
     }
 
 
-    public function create($plan=Null){
+    public function create($plan=0){
         $users=User::all();
         $company_services=CompanyService::all();
         $company_plans=CompanyPlan::all();

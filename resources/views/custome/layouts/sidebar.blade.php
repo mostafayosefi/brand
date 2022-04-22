@@ -125,7 +125,7 @@
                 </li>
 
                 <li class="nav-item">
- <a href="{{ route('user.company.request.create') }}" class="nav-link   {{ isActive(['user.company.request.create']) }}  ">درخواست ثبت شرکت</a>
+ <a href="{{ route('user.company.request.create','create') }}" class="nav-link   {{ isActive(['user.company.request.create']) }}  ">درخواست ثبت شرکت</a>
                 </li>
 
               </ul>

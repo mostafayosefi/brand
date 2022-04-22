@@ -32,6 +32,8 @@ class LoginuserController extends Controller
         $input = $request->all();
         $request->validate([
             'name' => 'required',
+            'username' => 'required|unique:users,username,$request->username',
+            'tell' => 'required|unique:users,tell,$request->tell',
             'email' => 'required|unique:users,email,$request->email',
             'password' => 'required| min:4 |confirmed',
             'password_confirmation' => 'required| min:4',
@@ -43,6 +45,8 @@ class LoginuserController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'username' => $request->username,
+            'tell' => $request->tell,
             'password' => Hash::make($request->password) ,
         ]);
         if(Auth::guard('user')->attempt(array('email' => $input['email'], 'password' => $input['password'])))

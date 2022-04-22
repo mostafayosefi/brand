@@ -31,7 +31,7 @@ class RequestbrandController extends Controller
         $servicebrands=Servicebrand::all();
         $categorybrands=Categorybrand::all();
         $subcategorybrands=Subcategorybrand::all();
-        return view('admin.company.service.create' , compact([ 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' ]) );
+        return view('admin.requestbrand.create' , compact([ 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' ]) );
     }
 
     public function edit($id){

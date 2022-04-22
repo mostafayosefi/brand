@@ -48,8 +48,17 @@
              <input name="name" type="text" placeholder="نام و نام خانوادگی"
                    value="{{old('name')}}"   required="required" >
 
+
+                   <input name="tell" type="text" placeholder="تلفن"
+                   value="{{old('tell')}}"   required="required" >
+
+             <input name="username" type="text" placeholder="نام کاربری"
+                   value="{{old('username')}}"    >
+
+
+
              <input name="email" type="text" placeholder="ایمیل"
-                   value="{{old('email')}}"   required="required" >
+             value="{{old('email')}}"   required="required" >
 
 
              <input name="password" type="password" placeholder="رمزعبور"

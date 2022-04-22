@@ -30,6 +30,20 @@ class ValidateLink implements Rule
     public function passes($attribute, $value )
     {
 
+        if($this->type_link=='price'){
+
+
+
+
+
+            if($this->valid=='regec_pers'){
+                $pattern = "/[۰۱۲۳۴۵۶۷۸۹]/";
+               $patt=preg_match($pattern, $value);
+                return $patt === 0;
+            }
+        }
+
+
         if($this->type_link=='UrlNamesilo'){
 
         //  return  (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$value));
@@ -90,6 +104,14 @@ class ValidateLink implements Rule
      */
     public function message()
     {
+
+        if($this->type_link=='price'){
+
+            if($this->valid=='regec_pers'){
+                return 'لطفا هزینه را به صورت عدد انگلیسی وارد نمایید'; }
+
+        }
+
 
         if($this->type_link=='UrlNamesilo'){
 

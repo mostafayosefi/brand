@@ -6,6 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Anetwork\\Validation\\PersianValidationServiceProvider' => $vendorDir . '/anetwork/validation/src/PersianValidationServiceProvider.php',
+    'Anetwork\\Validation\\ValidationMessages' => $vendorDir . '/anetwork/validation/src/ValidationMessages.php',
+    'Anetwork\\Validation\\ValidationRules' => $vendorDir . '/anetwork/validation/src/ValidationRules.php',
     'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha' => $vendorDir . '/anhskohbo/no-captcha/src/Facades/NoCaptcha.php',
     'Anhskohbo\\NoCaptcha\\NoCaptcha' => $vendorDir . '/anhskohbo/no-captcha/src/NoCaptcha.php',
     'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider' => $vendorDir . '/anhskohbo/no-captcha/src/NoCaptchaServiceProvider.php',

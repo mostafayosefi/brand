@@ -73,6 +73,14 @@ class FetchController extends Controller
         return view('custome.fetch.requestbrand' , compact(['value' , 'id' , 'requestbrand' , 'subcategorybrands'  ]));
     }
 
+    public function subcategorybrand($id ,  $value){
+        $requestbrand=Requestbrand::find($id);
+        $subcategorybrand=Subcategorybrand::find($value);
+        return view('custome.fetch.subcategorybrand' , compact(['value' , 'id' , 'requestbrand' , 'subcategorybrand'  ]));
+    }
+
+
+
 
 
 }

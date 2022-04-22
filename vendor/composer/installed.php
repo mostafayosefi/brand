@@ -5,11 +5,20 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '1e4c502f3ecf391daa54815ef9fe70add500ee6a',
+        'reference' => '9195b03a750eef0221a311983cd79237ca62dfa1',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
     'versions' => array(
+        'anetwork/validation' => array(
+            'pretty_version' => 'v2.2.2',
+            'version' => '2.2.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../anetwork/validation',
+            'aliases' => array(),
+            'reference' => '288e7d77a02f1dc07c5c76321433bdaff9f88fe8',
+            'dev_requirement' => false,
+        ),
         'anhskohbo/no-captcha' => array(
             'pretty_version' => '3.4.0',
             'version' => '3.4.0.0',
@@ -517,7 +526,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '1e4c502f3ecf391daa54815ef9fe70add500ee6a',
+            'reference' => '9195b03a750eef0221a311983cd79237ca62dfa1',
             'dev_requirement' => false,
         ),
         'laravel/passport' => array(

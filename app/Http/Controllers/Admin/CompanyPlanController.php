@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\CompanyPlan;
+use App\Rules\ValidateLink;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\CompanyProperty;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CompanyPlanController extends Controller
@@ -33,6 +34,9 @@ class CompanyPlanController extends Controller
 
 
         $request->validate([
+            'price' => [new ValidateLink('price','regec_pers')] ,
+        ]);
+        $request->validate([
             'name' => 'required',
             'text' => 'required',
         ]);
@@ -57,6 +61,12 @@ class CompanyPlanController extends Controller
 
 
     public function update(Request $request, $id , CompanyPlan $company_plan){
+
+
+        $request->validate([
+            'price' => [new ValidateLink('price','regec_pers')] ,
+        ]);
+
         $request->validate([
             'name' => 'required',
             'text' => 'required',
@@ -70,7 +80,7 @@ class CompanyPlanController extends Controller
         $insertarray= insertarray($request->input('feild_name') , 'CompanyProperty' , $company_plan->id  );
         Alert::success('با موفقیت ویرایش شد', 'اطلاعات با موفقیت ویرایش شد');
         return back();
-        
+
     }
 
 
