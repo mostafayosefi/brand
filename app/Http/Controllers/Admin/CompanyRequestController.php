@@ -19,7 +19,8 @@ class CompanyRequestController extends Controller
 {
 
 
-    public function index(){
+    public function index(Request $request){
+        $request->session()->forget('err');
         $company_requests= CompanyRequest::where([ ['id','<>','0'] ])->orderby('id' , 'desc')->get();
         return view('admin.company.request.index' , compact(['company_requests'  ]));
     }
@@ -117,7 +118,7 @@ class CompanyRequestController extends Controller
         $data['price'] = str_rep_price($data['price']);
         store_timeline_1('admin' , 'company_request' , $data['text'] , $status , $company_request->user_id , $id  , 1);
 
-        $statusacc = status_req($status,'status');
+        $statusacc = status_request_company($status,'status');
 
 
         if(($status=='active')||($status=='waiting')){

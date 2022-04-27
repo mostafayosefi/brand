@@ -87,7 +87,8 @@
                                             <label for="categorybrand">   زیرگروه دسته بندی برند     </label>
                                             <select name="subcategorybrand_id"  multiple="multiple"
                                             class="js-example-basic-multiple w-100"
-                                            placeholder=""   aria-required="true"    style="font-size: 18px;"    onchange="fetch_myselect_5(this.value);"   id="view_mycategorybrand"   >
+                                            placeholder=""   aria-required="true"    style="font-size: 18px;"
+                                            onchange="fetch_myselect_5(this.value);"   id="view_mycategorybrand"   >
 
                                             <option value="">لطفا  زیرگروه دسته برند را انتخاب نمایید  </option>
 
@@ -384,7 +385,7 @@ if(servicebrand_id==idvalue){
 
                               @slot('script')
 
- 
+
 
 
 

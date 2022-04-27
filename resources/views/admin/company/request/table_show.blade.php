@@ -45,6 +45,10 @@
                 <tbody>
 
         @if($aroue=='admin')
+
+
+
+
         <tr>
            <td>کاربر</td>
            <td> {{ $company_request->user->name }}</td>
@@ -190,26 +194,12 @@
 
 
          <tr>
-            <td>فایل ها   </td>
+            <td>  مدارک آپلود شده توسط کاربر   </td>
             <td>
 
-
-                @if($company_request->filebrands)
-    <table width="100%" id="multi_file_uploader" class="table table-bordered dt-responsive nowrap" >
-        <tbody>
-
-
-            <tr class="imageSelectorContainer">
-                <td valign="top" align="right">
-                 <input type="button" value="مشاهده فایل" title="Add" class="btn btn-success btn-sm" style=""  >
-                    <input type="button" value="حذف فایل" title="Remove" class="btn btn-danger btn-sm"  >
-
-                    </input></td>
-            </tr>
-        </tbody>
-
-     </table>
-     @endif
+ @if($company_request->company_files)
+ @include('admin.company.request.listupload', [  $company_request  ])
+  @endif
 
             </td>
         </tr>
@@ -230,7 +220,7 @@
 
         <tr>
             <td> وضعیت پرداخت</td>
-            <td>  @include('admin.layouts.table.getstatus_requestbrand', ['admin' => $company_request ,'route' => ''  ,'type_name' => 'requestbrand'   ]) </td>
+            <td>  @include('admin.company.request.get_status', ['admin' => $company_request ,'route' => ''      ]) </td>
         </tr>
 
 
@@ -257,7 +247,7 @@
 
 
             @if($company_request->status=='register')
-            <td>  @include('admin.layouts.table.getstatus_requestbrand', ['admin' => $company_request ,'route' => ''  ,'type_name' => 'requestbrand'   ]) </td>
+            <td>  @include('admin.company.request.get_status', ['admin' => $company_request ,'route' => ''      ]) </td>
 
             @endif
 
@@ -331,16 +321,19 @@
     <td>عملیات سفارش</td>
     <td>
 
-
-        @if ($company_request->status != 'active')
+ @if ($company_request->status != 'active')
 
 @php $status=$company_request->status; @endphp
  @if($company_request->status=='inactive')
  @php $status='reactive'; @endphp
  @endif
 
+
+
+ @if ($company_request->status != 'recerve')
         @include('admin.requestbrand.modal_operation', [ 'route' => route('admin.company.request.status' , [ 'id'=>$company_request->id , $status ]  ) ,
-         'operat' => 'accept' , 'order'=>$company_request  , 'nameoper' =>  status_req($company_request->status,'nameoper')    ])
+         'operat' => 'accept' , 'order'=>$company_request  , 'nameoper' =>  status_request_company($company_request->status,'nameoper')    ])
+        @endif
         @endif
         @if ($company_request->status != 'inactive')
         @include('admin.requestbrand.modal_operation', [ 'route' => route('admin.company.request.status' , [ 'id'=>$company_request->id , 'status'=>'inactive' ]  ) ,
@@ -348,6 +341,11 @@
         @endif
     </td>
 </tr>
+
+
+
+
+
 @endif
 
 
@@ -355,17 +353,6 @@
 </table>
 
 </div>
-<div class="col-12 col-xl-12 stretch-card">
 
+        </div>
 
-
-
-</div>
-</div>
-
-
-
-
-@if($company_request->discriptionorders)
-@include('admin.order.timeline', [  'discriptionorders' => $company_request->discriptionorders , 'myoperator'=>'company_request' ])
-@endif

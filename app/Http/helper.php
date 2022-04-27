@@ -1023,7 +1023,29 @@ if ($status == 'waiting'){$statusacc='active';  $nameoper='تایید سفارش
 if ($status == 'active'){$statusacc='active';  $nameoper='فعالسازی مجدد سفارش';  $messagetext='سفارش فعال شد';}
 if ($status == 'inactive'){$statusacc='register';  $nameoper='فعالسازی مجدد سفارش';  $messagetext='سفارش مجددا توسط مدیریت تایید شد';}
 if ($status == 'reactive'){$statusacc='register';  $nameoper='فعالسازی مجدد سفارش';  $messagetext='سفارش مجددا توسط مدیریت تایید شد';}
+if ($status == 'recerve'){$statusacc='active';  $nameoper='ثبت نهایی شرکت';  $messagetext='ثبت نهایی شرکت باموفقیت انجام شد';}
+
+if($myfunc=='status'){ return $statusacc; }
+if($myfunc=='nameoper'){ return $nameoper; }
+if($myfunc=='text'){ return $messagetext; }
+
+        }
+    }
+
+
+    if(! function_exists('status_request_company') ) {
+        function status_request_company($status,$myfunc)
+        {
+
+$nameoper='';
+if($status == 'register'){$statusacc='waiting'; $nameoper='براورد هزینه'; $messagetext='براورد هزینه سفارش توسط مدیریت انجام شد';}
+if ($status == 'waiting'){$statusacc='active';  $nameoper='تایید سفارش';  $messagetext='سفارش توسط مدیریت تایید شد';}
+if ($status == 'active'){$statusacc='active';  $nameoper='فعالسازی مجدد سفارش';  $messagetext='سفارش فعال شد';}
+if ($status == 'inactive'){$statusacc='register';  $nameoper='فعالسازی مجدد سفارش';  $messagetext='سفارش مجددا توسط مدیریت تایید شد';}
+if ($status == 'reactive'){$statusacc='register';  $nameoper='فعالسازی مجدد سفارش';  $messagetext='سفارش مجددا توسط مدیریت تایید شد';}
 if ($status == 'waitpay'){$statusacc='active';  $nameoper='تایید پرداخت کاربر';  $messagetext='پرداخت کاربر توسط مدیریت تایید شد';}
+if ($status == 'recerve'){$statusacc='active';  $nameoper='ثبت نهایی شرکت';  $messagetext='ثبت نهایی شرکت باموفقیت انجام شد';}
+
 
 if($myfunc=='status'){ return $statusacc; }
 if($myfunc=='nameoper'){ return $nameoper; }

@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\RequestbrandController;
 use App\Http\Controllers\Admin\ServicebrandController;
 use App\Http\Controllers\Admin\CategorybrandController;
 use App\Http\Controllers\Admin\CompanyRequestController;
+use App\Http\Controllers\Admin\CompanyRequestRegisterController;
 use App\Http\Controllers\Admin\CompanyServiceController;
 use App\Http\Controllers\Admin\CompanyTypeController;
 use App\Http\Controllers\Admin\ContentDomainController;
@@ -419,6 +420,26 @@ Route::prefix('company')->name('company.')->group(function () {
          Route::put('/{id}', [CompanyRequestController::class, 'update'])->name('update');
          Route::put('/{id}/{status}/change_status', [CompanyRequestController::class, 'status'])->name('status');
          Route::delete('/{id}', [CompanyRequestController::class, 'destroy'])->name('destroy');
+
+
+     Route::prefix('register')
+     ->name('register.')->group(function () {
+
+        Route::post('/{company_request}', [CompanyRequestRegisterController::class, 'store'])->name('store');
+
+        Route::post('/{company_register}/file', [CompanyRequestRegisterController::class, 'store_file'])->name('store.file');
+        Route::delete('/{id}', [CompanyRequestRegisterController::class, 'destroy'])->name('destroy');
+
+
+
+
+
+
+     });
+
+
+
+
 
      });
 

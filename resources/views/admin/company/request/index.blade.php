@@ -55,7 +55,7 @@
 
         <td> {{flage_price($admin->price)}}</td>
         <td>{{ date_frmat($admin->created_at) }}</td>
-<td> <a href="{{$route_show}}"> @include('admin.layouts.table.getstatus_requestbrand', [$admin ,'route' => ''  ,'type_name' => 'requestbrand'   ]) </a> </td>
+<td> <a href="{{$route_show}}"> @include('admin.company.request.get_status', [$admin ,'route' => ''    ]) </a> </td>
 
 <td>
 @if(($admin->status=='active')||($admin->status=='waitpay'))

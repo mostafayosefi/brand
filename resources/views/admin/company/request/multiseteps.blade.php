@@ -177,7 +177,25 @@
     <li class="is-active"  >در انتظار تایید پرداخت </li>
     @endif
 
-    <li     class="is-actived"   >پرداخت باموفقیت انجام شد   </li>
+
+    @if($order->status=='active')
+    <li     class="is-actived"  >پرداخت باموفقیت انجام شد  </li>
+    <li      class="is-active"   >شرکت ثبت نهایی شد </li>
+    @endif
+
+
+    @if($order->status=='recerve')
+    <li   class="is-actived"   >پرداخت باموفقیت انجام شد  </li>
+    <li      class="is-actived"   >شرکت ثبت نهایی شد </li>
+    @endif
+
+
+{{--
+    <li  @if($order->status=='active')  class="is-actived" @else    class="is-active"  @endif  >پرداخت باموفقیت انجام شد  </li>
+    <li      class="is-active"   >شرکت ثبت نهایی شد </li> --}}
+
+
+
 </ul>
 
 @endif

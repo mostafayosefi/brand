@@ -52,4 +52,13 @@ class CompanyRequest extends Model
 
 
 
+    public function company_registers()
+    {
+        return $this->hasMany(CompanyRegister::class , 'company_request_id' );
+    }
+
+
+
+
+
 }

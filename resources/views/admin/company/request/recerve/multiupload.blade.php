@@ -12,6 +12,10 @@
                    <input type="button" value="حذف فایل" title="Remove" class="btn btn-danger btn-sm" style="display:none;  "   onclick="remove_file_uploader(this)">
 
                    </input></td>
+                   <td valign="top" style="width: 50%">
+                       <input type="text"  style="width: 100%" name="input_name[]" value="" class="multipleImageFileInput" placeholder="نام فایل"  onchange="show_image_preview(this);" >
+                       <table class="imagePreviewTable"></table>
+                   </td>
                <td valign="top">
                    <input type="file" name="image_uploader_multiple[]" value="" class="multipleImageFileInput"   onchange="show_image_preview(this);" accept="image/*" multiple="">
                    <table class="imagePreviewTable"></table>

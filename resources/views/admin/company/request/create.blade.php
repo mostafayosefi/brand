@@ -1,7 +1,7 @@
   @component('admin.layouts.content', [
       'title' => 'ثبت درخواست شرکت',
       'tabTitle' => 'ثبت درخواست شرکت',
-      'breadcrumb' => [['title' => 'لیست درخواستهای شرکت  ', 'url' => route('admin.requestbrand.index')], ['title' => 'ثبت درخواست شرکت',
+      'breadcrumb' => [['title' => 'لیست درخواستهای شرکت  ', 'url' => route('admin.company.request.index')], ['title' => 'ثبت درخواست شرکت',
       'class' => 'active']],
       ])
 
