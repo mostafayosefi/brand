@@ -45,7 +45,7 @@
 
 
 @php $route_show=route('admin.requestbrand.show', $admin->id);
- $route_destroy=route('user.domain.basket.destroy', $admin->id);  @endphp
+ $route_destroy=route('admin.requestbrand.destroy', $admin->id);  @endphp
 
 
     <tr>

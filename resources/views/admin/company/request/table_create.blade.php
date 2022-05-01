@@ -34,6 +34,38 @@
 
 
 
+<div class="form-group">
+
+    <input type="hidden" name="qty"  id="resultBox_hidden"    />
+
+    <label for="name">هزینه پلان (به ریال)</label>
+    <input type="text" class="form-control"  autocomplete="off"  id="resultBox"
+    placeholder=" هزینه پلان "  readonly="true" type="text"  value="0 ریال " disabled  >
+    </div>
+
+
+
+<script>
+    function calc() {
+    var resultBox_hidden = document.getElementById('resultBox_hidden');
+    var resultBox = document.getElementById('resultBox');
+
+    var select1 = document.getElementById("dropdown_test");
+    var item = select1.options[select1.selectedIndex];
+    var select1_control = 1;
+
+    var var1 = item.getAttribute('data-var1');
+
+    resultBox_hidden.value = (parseFloat(var1) * parseFloat(select1_control))  ;
+    resultBox.value = (parseFloat(var1) * parseFloat(select1_control))  + " ريال";
+}
+</script>
+
+
+
+
+
+
                                         @include('admin.layouts.table.selectbox', [ 'allforeachs' => $company_types ,  'input_name' => 'name'  ,
                                           'name_select' => ' نوع شرکت ' ,  'value' => '' , 'required'=>'required'  ,
                                           'index_id'=>'company_type_id' ])
@@ -176,6 +208,9 @@ rows="5">{{old('adresir')}}</textarea>
     <script>
         function totalIt() {
       var input = document.getElementsByName("company_service[]");
+      var resulttotal = document.getElementById('resulttotal');
+      var resulttotal_hidden = document.getElementById('resulttotal_hidden');
+
       var total = 0;
       for (var i = 0; i < input.length; i++) {
         if (input[i].checked) {
@@ -193,14 +228,16 @@ if(company_service_id==idvalue){
 }
 
 <?php
-        }
+  }
  ?>
-          total += orgvalue;
+     total += orgvalue;
         }
       }
 
 
-      document.getElementsByName("total")[0].value =  total.toFixed(0)+ " ريال " ;
+    //   document.getElementsByName("total")[0].value =  total.toFixed(0)+ " ريال " ;
+    resulttotal_hidden.value = parseFloat(total);
+    resulttotal.value = parseFloat(total)  + " ريال";
 
 
 
@@ -224,17 +261,41 @@ if(company_service_id==idvalue){
 
 
     <div class="form-group">
-    <label for="name">هزینه کل</label>
+        <input type="hidden" name="qty" id="resulttotal_hidden">
+    <label for="name">هزینه خدمات</label>
     <input type="text" class="form-control"  autocomplete="off"
-    placeholder=" هزینه کل "  readonly="readonly" type="text" name="total" value="0 ریال " disabled  >
+    placeholder=" هزینه کل "  readonly="readonly" type="text"   id="resulttotal" value="0 ریال " disabled  >
     </div>
 
+<script>
+    window.sumInputs = function() {
+    var inputs = document.getElementsByName('qty'),
+        result = document.getElementById('totall'),
+        sum = 0;
+    for(var i=0; i<inputs.length; i++) {
+        var ip = inputs[i];
+        if (ip.name && ip.name.indexOf("totall") < 0) {
+            sum += parseInt(ip.value) || 0;
+        }
+    }
+    result.value = sum + " ريال";
+}
+</script>
 
+<hr>
+
+
+<div class="form-group">
+جمع کل هزینه : <input type="text" name="totall" id="totall" disabled />
+<a class="btn btn-primary" href="javascript:sumInputs()">محاسبه هزینه</a>
+<div>
 
 
 <div>
 
   <hr>
+
+
 
 
   @include('admin.layouts.table.multiupload', [ $label='آپلود فایل' , ])

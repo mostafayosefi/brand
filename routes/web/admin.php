@@ -275,6 +275,8 @@ Route::prefix('wallet')
     Route::get('/', [WalletController::class, 'index'])->name('index');
     Route::get('/create_charge', [WalletController::class, 'create'])->name('create');
     Route::post('/', [WalletController::class, 'store'])->name('store');
+    Route::get('/{id}/showwallet', [WalletController::class, 'show'])->name('show');
+    Route::put('/{id}/{status}/change_status', [WalletController::class, 'status'])->name('status');
 
 });
 

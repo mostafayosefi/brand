@@ -20,7 +20,7 @@ class Setting extends Model
 
 
     public function mngfinical(){
-        return $this->hasOne(Mngfinical::class , 'id');
+        return $this->hasOne(Mngfinical::class , 'setting_id');
     }
 
     public function law(){

@@ -32,16 +32,25 @@ class ValidateLink implements Rule
 
         if($this->type_link=='price'){
 
-
-
-
-
             if($this->valid=='regec_pers'){
                 $pattern = "/[۰۱۲۳۴۵۶۷۸۹]/";
                $patt=preg_match($pattern, $value);
                 return $patt === 0;
             }
         }
+
+
+
+        if($this->type_link=='requestbrand'){
+
+            if($this->valid=='regec_pers'){
+                $pattern = "/[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ]/";
+                $patt=preg_match($pattern, $value);
+                return $patt === 0;
+            }
+        }
+
+
 
 
         if($this->type_link=='UrlNamesilo'){
@@ -109,6 +118,14 @@ class ValidateLink implements Rule
 
             if($this->valid=='regec_pers'){
                 return 'لطفا هزینه را به صورت عدد انگلیسی وارد نمایید'; }
+
+        }
+
+
+        if($this->type_link=='requestbrand'){
+
+            if($this->valid=='regec_pers'){
+                return 'لطفا نام برند را به صورت انگلیسی وارد نمایید'; }
 
         }
 

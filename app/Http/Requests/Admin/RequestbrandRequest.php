@@ -17,9 +17,10 @@ class RequestbrandRequest extends FormRequest
 
     public function rules()
     {
-     return ['name' => 'required']
-     +
-     ($this->isMethod('POST') ? $this->store() : $this->status());
+
+        return ['name' => 'required']
+        +
+        ($this->isMethod('POST') ? $this->store() : $this->status());
 
     }
 
@@ -31,9 +32,10 @@ class RequestbrandRequest extends FormRequest
         return [
             // 'user_id' => 'required',
             'name' => 'required|unique:users|min:8',
-            'categorybrand_id' => 'required',
-            'subcategorybrand_id' => 'required',
+            // 'categorybrand_id' => 'required',
+            'subcategorybrand' => 'required',
             'email' => 'required',
+            'birthday' => 'required',
             'tellir' => 'required',
             'codepir' => 'required',
             'adresir' => 'required',

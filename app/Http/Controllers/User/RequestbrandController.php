@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\User;
 use App\Models\Payment;
+use App\Models\Setting;
 use App\Models\Filebrand;
 use Illuminate\Support\Str;
 use App\Models\Requestbrand;
@@ -30,10 +31,11 @@ class RequestbrandController extends Controller
 
     public function create(){
         $users=User::all();
+        $setting=Setting::find(1);
         $servicebrands=Servicebrand::all();
         $categorybrands=Categorybrand::all();
         $subcategorybrands=Subcategorybrand::all();
-        return view('custome.requestbrand.create' , compact([ 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' ]) );
+        return view('custome.requestbrand.create' , compact([ 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' , 'setting' ]) );
     }
 
     public function edit($id){
@@ -57,8 +59,11 @@ class RequestbrandController extends Controller
             }
         }
 
-       $funclistbeand = storelistbrands($requestbrand->id,$request->servicebrand);
-       $price=sumpricereqbrand($requestbrand->id);
+        $funclistbeand = storelistbrands($requestbrand->id,$request->servicebrand);
+
+        $funclistbeand = storelistsubbrands($requestbrand->id,$request->subcategorybrand);
+
+        $price=sumpricereqbrand($requestbrand->id,'sum');
        $requestbrand->update([ 'price' => $price  ]);
        Alert::success('با موفقیت ثبت شد', 'اطلاعات جدید با موفقیت ثبت شد');
         return redirect()->route('admin.requestbrand.index');
@@ -72,7 +77,10 @@ class RequestbrandController extends Controller
         $servicebrands=Servicebrand::all();
         $categorybrands=Categorybrand::all();
         $subcategorybrands=Subcategorybrand::all();
-        return view('custome.requestbrand.show' , compact([ 'requestbrand' , 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' ]) );
+
+        $setting=Setting::find(1);
+
+        return view('custome.requestbrand.show' , compact([ 'requestbrand' , 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' , 'setting' ]) );
 
 
     }
@@ -113,9 +121,6 @@ class RequestbrandController extends Controller
 
         $requestbrand=Requestbrand::find($id);
         $data = $request->all();
-
-
-        // dd($data);
 
         $payment = Payment::updateOrCreate([
             'requestbrand_id' => $requestbrand->id

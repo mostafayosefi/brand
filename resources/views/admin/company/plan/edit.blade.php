@@ -59,39 +59,6 @@
                                                  >{{$company_plan->text}}</textarea>
                                         </div>
 
-                                        @if($company_plan->company_properties)
-                                        <hr>
-
-
-                                        <table id="dataTableExample" class="table">
-                                            <thead>
-                                              <tr>
-                                                <td> نام امکانات</td>
-                                                <td>حذف</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            @foreach($company_plan->company_properties as $admin)
-                                            <tr>
-                                                <td>{{$admin->name}}</td>
-                                                <td>
-                                                    @php $admin['title'] = $admin->name;  @endphp
-                                                    @include('admin.layouts.table.modal', [$admin ,'route' => route('admin.company.plan.destroy.property', $admin) , 'myname' => $admin->name ])
-                                                    </td>
-                                            </tr>
-                                            @endforeach
-
-                                        </tbody>
-
-                                        </table>
-
-                                        <hr>
-                                        @endif
-
-
-
-
 
 @include('admin.layouts.table.add_input_array', [   'name_select' => 'امکانات' ,
 'required'=>'required'  , 'index_id'=>'feild_name[]' ])
@@ -102,7 +69,7 @@
 
                                         <div class="form-group">
                                             <label for="price">هزینه پلان شرکت (به ریال)</label>
-                                            <input type="text" class="form-control" id="price" autocomplete="off" onkeyup="separateNum(this.value,this);"  
+                                            <input type="text" class="form-control" id="price" autocomplete="off" onkeyup="separateNum(this.value,this);"
                                                 placeholder="هزینه پلان شرکت" name="price" value="{{$company_plan->price}}">
                                         </div>
 
@@ -131,6 +98,39 @@
                                   </div>
 
                               </form>
+
+
+
+                              @if($company_plan->company_properties)
+                              <hr>
+
+
+                              <table id="dataTableExample" class="table">
+                                  <thead>
+                                    <tr>
+                                      <td> نام امکانات</td>
+                                      <td>حذف</td>
+                                  </tr>
+                              </thead>
+                              <tbody>
+
+                                  @foreach($company_plan->company_properties as $admin)
+                                  <tr>
+                                      <td>{{$admin->name}}</td>
+                                      <td>
+                                          @php $admin['title'] = $admin->name;  @endphp
+                                          @include('admin.layouts.table.modal', [$admin ,'route' => route('admin.company.plan.destroy.property', $admin) , 'myname' => $admin->name ])
+                                          </td>
+                                  </tr>
+                                  @endforeach
+
+                              </tbody>
+
+                              </table>
+
+                              <hr>
+                              @endif
+
 
 
 

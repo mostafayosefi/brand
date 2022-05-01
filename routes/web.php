@@ -210,8 +210,8 @@ Route::namespace('Auth')->prefix('admin')->group(function () {
 
 
                      Route::prefix('wallet')->name('wallet.')->group(function () {
-                        Route::get('/', [WalletController::class, 'index'])->name('index');
-                        Route::get('/create', [WalletController::class, 'create'])->name('create');
+                        Route::get('/indexwallet', [WalletController::class, 'index'])->name('index');
+                        Route::get('/createwallet', [WalletController::class, 'create'])->name('create');
                         Route::post('/', [WalletController::class, 'store'])->name('store');
 
 
@@ -241,11 +241,11 @@ Route::namespace('Auth')->prefix('admin')->group(function () {
             Route::prefix('requestbrand')
             ->name('requestbrand.')->group(function () {
 
-                Route::get('/indexrequest', [RequestbrandController::class, 'index'])->name('index');
-                Route::get('/createrequest', [RequestbrandController::class, 'create'])->name('create');
+                Route::get('/indexrequestbrand', [RequestbrandController::class, 'index'])->name('index');
+                Route::get('/createrequestbrand', [RequestbrandController::class, 'create'])->name('create');
                 Route::post('/', [RequestbrandController::class, 'store'])->name('store');
-                Route::get('/{id}/editrequest', [RequestbrandController::class, 'edit'])->name('edit');
-                Route::get('/{id}/showrequest', [RequestbrandController::class, 'show'])->name('show');
+                Route::get('/{id}/editrequestbrand', [RequestbrandController::class, 'edit'])->name('edit');
+                Route::get('/{id}/showrequestbrand', [RequestbrandController::class, 'show'])->name('show');
                 Route::put('/{id}', [RequestbrandController::class, 'update'])->name('update');
 
                 Route::put('/{id}/payment', [RequestbrandController::class, 'payment'])->name('payment');

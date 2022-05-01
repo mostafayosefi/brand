@@ -10,10 +10,13 @@ class Mngfinical extends Model
 {
 
 
+    protected $fillable = [ 'priceplan', 'rateusd' ,   'setting_id'  ,  ];
 
 
     public function setting(){
-        return $this->belongsTo(Setting::class  , 'setting_id' , 'id');
+        return $this->belongsTo(Setting::class);
     }
 
+
+ 
 }

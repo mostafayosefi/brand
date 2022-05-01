@@ -1,4 +1,4 @@
-  @component('admin.layouts.content', [
+  @component('custome.layouts.content', [
       'title' => 'مشاهده سفارش برند',
       'tabTitle' => ' مشاهده سفارش برند',
       'breadcrumb' => [['title' => 'لیست سفارش های برند ', 'url' => route('user.requestbrand.index')], ['title' => 'مشاهده سفارش برند  ',
@@ -15,39 +15,135 @@
 @elseif($requestbrand != Null)
 
 
-          <div class="col-12 col-xl-12 stretch-card">
-              <div class="row flex-grow">
 
 
-                  <div class="col-md-12 grid-margin stretch-card">
-                      <div class="card">
-                          <div class="card-body">
 
-                              <div class="card-header card-header-border-bottom">
-                                  <h4>مشاهده سفارش برند </h4>
-                              </div>
+<div class="col-12 col-xl-12 stretch-card">
+    <div class="row flex-grow">
+
+
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="card-header card-header-border-bottom">
+                        <h4>مشاهده سفارش برند </h4>
+                    </div>
 <br>
 @include('admin.requestbrand.multiseteps', ['order' => $requestbrand  ])
 
 
-@include('admin.requestbrand.table_show', [  'route' => route('user.requestbrand.payment', $requestbrand)  , 'aroue' => 'user'  ,   $users  ])
-
-                          </div>
-                      </div>
-                  </div>
 
 
 
-                  <div class="col-md-12 grid-margin stretch-card">
+<div class="row flex-grow">
+<div class="col-md-12 grid-margin stretch-card">
 
 
+<div class="card-body">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+          <a class="nav-link @if (empty(Session::get('err'))) active @endif "
+              id="icon-home-tab" data-toggle="tab" href="#icon-home" role="tab"
+              aria-controls="icon-home" aria-selected=" true "> <i
+                  data-feather="edit-2"></i>
+              اطلاعات ثبت شده </a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link  @if (Session::get('err') == '1') active @endif "
+              id="icon-secret-tab" data-toggle="tab" href="#icon-secret"
+              role="tab" aria-controls="icon-secret" aria-selected="false"> <i
+                  data-feather="server"></i>
+              فاکتور پرداخت</a>
+      </li>
 
-                  </div>
+
+      <li class="nav-item">
+          <a class="nav-link  " id="icon-timeline-tab" data-toggle="tab"
+              href="#icon-timeline" role="tab" aria-controls="icon-home"
+              aria-selected=" true "> <i data-feather="list"></i>
+              تایم لاین </a>
+      </li>
+
+  </ul>
+
+
+  <div class="tab-content" id="myTabContent2">
+
+      <div class="tab-pane pt-3 fade   @if (empty(Session::get('err'))) show active @endif  "
+          id="icon-home" role="tabpanel" aria-labelledby="icon-home-tab">
+
+          <div class="row">
+              <div class="col-xl-12">
+
+                @include('admin.requestbrand.table_show', [  'route' => route('user.requestbrand.payment', $requestbrand)  , 'aroue' => 'user'  ,   $users  ])
+
+              </div>
+          </div>
+      </div>
+
+      <div class="tab-pane pt-3 fade  @if (Session::get('err') == '1') show active @endif "
+          id="icon-secret" role="tabpanel" aria-labelledby="icon-secret-tab">
+
+          <div class="row">
+              <div class="col-xl-12">
+
+                  @include('admin.requestbrand.invoice', [ 'aroue' => 'user' ,$requestbrand  , $setting ])
+
+
+              </div>
+          </div>
+      </div>
+
+
+      <div class="tab-pane pt-3 fade  " id="icon-timeline" role="tabpanel"
+          aria-labelledby="icon-timeline-tab">
+          <div class="row">
+              <div class="col-xl-12">
+
+
+@if($requestbrand->discriptionorders)
+@include('admin.order.timeline', [  'discriptionorders' => $requestbrand->discriptionorders , 'myoperator'=>'requestbrand' ])
+@endif
+
 
 
 
               </div>
           </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-12 grid-margin stretch-card">
+
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
 
           @endif
 

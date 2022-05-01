@@ -24,25 +24,50 @@
 
 
 
-
-
-{{--
-
-        <li class="nav-item  {{ isActive(['user.finical.index' , 'user.finical.index'])}}   ">
-            <a class="nav-link" data-toggle="collapse" href="#finical" role="button" aria-expanded="false" aria-controls="finical">
+        <li class="nav-item  {{ isActive(['user.company.request.index' , 'user.company.request.create', 'user.company.request.edit', 'user.company.request.show'])}}  ">
+            <a class="nav-link" data-toggle="collapse" href="#company_request" role="button" aria-expanded="false" aria-controls="company_request">
               <i class="link-icon" data-feather="list"></i>
-              <span class="link-title">مدیریت مالی    </span>
+              <span class="link-title">مدیریت درخواست شرکت        </span>
               <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
-            <div class="collapse  {{ isShow(['user.finical.index' , 'user.finical.index'])}}     "  id="finical">
+            <div class="collapse  {{ isShow(['user.company.request.index' , 'user.company.request.create', 'user.company.request.edit', 'user.company.request.show'])}}   "  id="company_request">
               <ul class="nav sub-menu">
                 <li class="nav-item">
- <a href="{{ route('user.finical.index') }}" class="nav-link   {{ isActive(['user.finical.index']) }}  ">مشاهده صورتحساب     </a>
+ <a href="{{ route('user.company.request.index') }}" class="nav-link   {{ isActive(['user.company.request.index', 'user.company.request.edit', 'user.company.request.show']) }}  ">مشاهده درخواستهای شرکت   </a>
                 </li>
+
+                <li class="nav-item">
+ <a href="{{ route('user.company.request.create','create') }}" class="nav-link   {{ isActive(['user.company.request.create']) }}  ">درخواست ثبت شرکت</a>
+                </li>
+
               </ul>
             </div>
           </li>
- --}}
+
+
+
+          <li class="nav-item  {{ isActive(['user.requestbrand.index' , 'user.requestbrand.create', 'user.requestbrand.edit', 'user.requestbrand.show'])}}  ">
+            <a class="nav-link" data-toggle="collapse" href="#requestbrand" role="button" aria-expanded="false" aria-controls="requestbrand">
+              <i class="link-icon" data-feather="list"></i>
+              <span class="link-title">مدیریت برندهای من       </span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse  {{ isShow(['user.requestbrand.index' , 'user.requestbrand.create', 'user.requestbrand.edit', 'user.requestbrand.show'])}}   "  id="requestbrand">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+ <a href="{{ route('user.requestbrand.index') }}" class="nav-link   {{ isActive(['user.requestbrand.index', 'user.requestbrand.edit', 'user.requestbrand.show']) }}  ">مشاهده برندهای من  </a>
+                </li>
+
+                <li class="nav-item">
+ <a href="{{ route('user.requestbrand.create') }}" class="nav-link   {{ isActive(['user.requestbrand.create']) }}  ">ثبت برند جدید</a>
+                </li>
+
+              </ul>
+            </div>
+          </li>
+
+
+
 
           <li class="nav-item  {{ isActive(['user.finical.wallet.create' , 'user.finical.wallet.index'])}}   ">
             <a class="nav-link" data-toggle="collapse" href="#wallet" role="button" aria-expanded="false" aria-controls="wallet">
@@ -89,48 +114,6 @@
 
 
 
-
-
-          <li class="nav-item  {{ isActive(['user.requestbrand.index' , 'user.requestbrand.create', 'user.requestbrand.edit', 'user.requestbrand.show'])}}  ">
-            <a class="nav-link" data-toggle="collapse" href="#requestbrand" role="button" aria-expanded="false" aria-controls="requestbrand">
-              <i class="link-icon" data-feather="list"></i>
-              <span class="link-title">مدیریت برندهای من       </span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse  {{ isShow(['user.requestbrand.index' , 'user.requestbrand.create', 'user.requestbrand.edit', 'user.requestbrand.show'])}}   "  id="requestbrand">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
- <a href="{{ route('user.requestbrand.index') }}" class="nav-link   {{ isActive(['user.requestbrand.index', 'user.requestbrand.edit', 'user.requestbrand.show']) }}  ">مشاهده برندهای من  </a>
-                </li>
-
-                <li class="nav-item">
- <a href="{{ route('user.requestbrand.create') }}" class="nav-link   {{ isActive(['user.requestbrand.create']) }}  ">ثبت برند جدید</a>
-                </li>
-
-              </ul>
-            </div>
-          </li>
-
-
-          <li class="nav-item  {{ isActive(['user.company.request.index' , 'user.company.request.create', 'user.company.request.edit', 'user.company.request.show'])}}  ">
-            <a class="nav-link" data-toggle="collapse" href="#company_request" role="button" aria-expanded="false" aria-controls="company_request">
-              <i class="link-icon" data-feather="list"></i>
-              <span class="link-title">مدیریت درخواست شرکت        </span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse  {{ isShow(['user.company.request.index' , 'user.company.request.create', 'user.company.request.edit', 'user.company.request.show'])}}   "  id="company_request">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
- <a href="{{ route('user.company.request.index') }}" class="nav-link   {{ isActive(['user.company.request.index', 'user.company.request.edit', 'user.company.request.show']) }}  ">مشاهده درخواستهای شرکت   </a>
-                </li>
-
-                <li class="nav-item">
- <a href="{{ route('user.company.request.create','create') }}" class="nav-link   {{ isActive(['user.company.request.create']) }}  ">درخواست ثبت شرکت</a>
-                </li>
-
-              </ul>
-            </div>
-          </li>
 
 
 

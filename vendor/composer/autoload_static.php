@@ -844,6 +844,7 @@ class ComposerStaticInit6d46fb56d0e07884ef7776463e126e1c
         'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
         'App\\Models\\Renew' => __DIR__ . '/../..' . '/app/Models/Renew.php',
         'App\\Models\\Requestbrand' => __DIR__ . '/../..' . '/app/Models/Requestbrand.php',
+        'App\\Models\\RequestbrandListSubcategory' => __DIR__ . '/../..' . '/app/Models/RequestbrandListSubcategory.php',
         'App\\Models\\Servicebrand' => __DIR__ . '/../..' . '/app/Models/Servicebrand.php',
         'App\\Models\\Setting' => __DIR__ . '/../..' . '/app/Models/Setting.php',
         'App\\Models\\Spotlite' => __DIR__ . '/../..' . '/app/Models/Spotlite.php',

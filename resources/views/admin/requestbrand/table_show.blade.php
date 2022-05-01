@@ -56,16 +56,21 @@
             <td>نام برند درخواستی</td>
             <td> {{ $requestbrand->name }}</td>
         </tr>
-
+{{--
         <tr>
             <td>دسته برند  </td>
-            <td> {{ $requestbrand->subcategorybrand->categorybrand->name }}</td>
-        </tr>
+            <td>
+                 {{ $requestbrand->subcategorybrand->categorybrand->name }}
+                </td>
+        </tr> --}}
 
 
         <tr>
-            <td>زیرگروه برند  </td>
-            <td> {{ $requestbrand->subcategorybrand->name }}</td>
+            <td>طبقات انتخاب شده</td>
+            <td>
+ @include('admin.requestbrand.list', [  $aroue , 'lists' => $requestbrand->requestbrand_list_subcategories , 'type' => 'subcat' , ])
+
+            </td>
         </tr>
 
         <tr>
@@ -204,25 +209,8 @@
             <td>فایل ها   </td>
             <td>
 
+ @include('admin.requestbrand.list', [  $aroue , 'lists' => $requestbrand->filebrands , 'type' => 'file' , ])
 
-                @if($requestbrand->filebrands)
-    <table width="100%" id="multi_file_uploader" class="table table-bordered dt-responsive nowrap" >
-        <tbody>
-
-            {{-- @foreach ($requestbrand->filebrands as $file ) --}}
-
-            <tr class="imageSelectorContainer">
-                <td valign="top" align="right">
-                 <input type="button" value="مشاهده فایل" title="Add" class="btn btn-success btn-sm" style=""  >
-                    <input type="button" value="حذف فایل" title="Remove" class="btn btn-danger btn-sm"  >
-
-                    </input></td>
-            </tr>
-            {{-- @endforeach --}}
-        </tbody>
-
-     </table>
-     @endif
 
             </td>
         </tr>
@@ -378,7 +366,3 @@
 
 
 
-
-@if($requestbrand->discriptionorders)
-@include('admin.order.timeline', [  'discriptionorders' => $requestbrand->discriptionorders , 'myoperator'=>'requestbrand' ])
-@endif

@@ -33,6 +33,7 @@ use App\Models\Subcategorybrand;
 use App\Models\CompanyListService;
 use App\Models\CompanyRequest;
 use App\Models\CompanyService;
+use App\Models\RequestbrandListSubcategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -182,6 +183,15 @@ if(! function_exists('uploadFile') ) {
 
 
 
+ if(! function_exists('date_frmat_mnth') ) {
+    function date_frmat_mnth($date)
+    {
+        $date = Jalalian::forge($date)->format('%A, %d %B %Y');
+        return $date;
+
+    }
+
+}
 //get date_frmat
 if(! function_exists('date_frmat') ) {
     function date_frmat($date)
@@ -227,6 +237,26 @@ if(! function_exists('storelistbrands') ) {
 
 
 
+if(! function_exists('storelistsubbrands') ) {
+    function storelistsubbrands($requestbrand_id,$subcategorybrand){
+
+        $allsubcategories=Subcategorybrand::all();
+        foreach($allsubcategories as $allsubcategory){
+             $listbrand =  RequestbrandListSubcategory::create([ 'requestbrand_id'   => $requestbrand_id,
+            'subcategorybrand_id'     => $allsubcategory->id, 'show' => 0, ]);
+        }
+        foreach($subcategorybrand as  $key =>  $sub){
+        $listbrand=RequestbrandListSubcategory::where([ ['subcategorybrand_id' ,   $sub ],
+        ['requestbrand_id' ,   $requestbrand_id ],  ])->update([ 'show' => 1 ]);
+        }
+
+
+    }
+}
+
+
+
+
 if(! function_exists('storelistcompany') ) {
     function storelistcompany($company_request_id,$company_services){
 
@@ -246,18 +276,32 @@ if(! function_exists('storelistcompany') ) {
 
 
 if(! function_exists('sumpricereqbrand') ) {
-    function sumpricereqbrand($id){
+    function sumpricereqbrand($id,$oper){
 
+        $setting=Setting::find(1);
+        $priceplan=$setting->mngfinical->priceplan;
         $listbrands=Listservicebrand::where([ ['requestbrand_id' ,   $id ],
         ['show' ,   1 ],  ])->get();
+        $countlistsub=RequestbrandListSubcategory::where([ ['requestbrand_id' ,   $id ],
+        ['show' ,   1 ],  ])->count();
 
-
-        $price=0;
+        $servicebrand_price=0;
         foreach($listbrands as $listbrand){
-           $price = $listbrand->servicebrand->price + $price;
+           $servicebrand_price = $listbrand->servicebrand->price + $servicebrand_price;
+        }
+        $price=$servicebrand_price+($countlistsub*$priceplan);
+
+        if($oper=='sum'){
+            return $price;
         }
 
-        return $price;
+        if($oper=='sumservice'){
+            return $servicebrand_price;
+        }
+
+        if($oper=='sumsub'){
+            return $countlistsub*$priceplan;
+        }
 
 
     }
@@ -1344,6 +1388,9 @@ $exit=number_format($price).' ريال ';    return  $exit;
 
 
 if($mytable=='user'){ $query=User::query()->where([ ['id' , '<>' ,'1'], ]);}
+if($mytable=='company_request'){ $query=CompanyRequest::query()->where([ ['id' , '<>' ,'0'], ]);}
+if($mytable=='new_company_request'){ $query=CompanyRequest::query()->where([ ['id' , '<>' ,'0'], ['fromshow' , '=' ,'unread'], ]);}
+if($mytable=='new_company_request_admin'){ $query=CompanyRequest::query()->where([ ['id' , '<>' ,'0'], ['toshow' , '=' ,'unread'], ]);}
 if($mytable=='requestbrand'){ $query=Requestbrand::query()->where([ ['id' , '<>' ,'0'], ]);}
 if($mytable=='new_requestbrand'){ $query=Requestbrand::query()->where([ ['id' , '<>' ,'0'], ['fromshow' , '=' ,'unread'], ]);}
 if($mytable=='new_requestbrand_admin'){ $query=Requestbrand::query()->where([ ['id' , '<>' ,'0'], ['toshow' , '=' ,'unread'], ]);}

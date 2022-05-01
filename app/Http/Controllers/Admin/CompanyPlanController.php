@@ -76,6 +76,8 @@ class CompanyPlanController extends Controller
         $data = $request->all();
         $data['image']= $company_plan->image;
         $data['image']  =  uploadFile($request->file('image'),'images/company_plans',$company_plan->image);
+
+        $data['price'] = str_rep_price($data['price']);
         $company_plan->update($data);
         $insertarray= insertarray($request->input('feild_name') , 'CompanyProperty' , $company_plan->id  );
         Alert::success('با موفقیت ویرایش شد', 'اطلاعات با موفقیت ویرایش شد');
@@ -92,7 +94,7 @@ class CompanyPlanController extends Controller
 
 
     public function destroyproperty($id , Request $request){
-        CompanyProperty::destroy($request->id);
+        CompanyProperty::destroy($id);
         Alert::info('با موفقیت حذف شد', 'امکانات با موفقیت حذف شد');
         return back();
     }

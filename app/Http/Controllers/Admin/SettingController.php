@@ -8,6 +8,7 @@ use App\Models\Address;
 use App\Models\Setting;
 
 use App\Models\Mngfinical;
+use App\Rules\ValidateLink;
 use Illuminate\Http\Request;
 use App\Models\Loginhistorie;
 use App\Http\Controllers\Controller;
@@ -99,8 +100,20 @@ public function finical(){
 
 
 public function update_finical(Request $request , Setting $setting){
+
+
+    $request->validate([
+        'rateusd' => [new ValidateLink('price','regec_pers')] ,
+        'priceplan' => [new ValidateLink('price','regec_pers')] ,
+    ]);
+    $data = $request->all();
+    $data['rateusd'] = str_rep_price($data['rateusd']);
+    $data['priceplan'] = str_rep_price($data['priceplan']);
+
+
 Mngfinical::where('id', 1)
-->update(['rateusd' => $request->rateusd     ]);
+->update(['rateusd' => $data['rateusd'] ,  'priceplan' => $data['priceplan']     ]);
+
     Alert::success('با موفقیت ویرایش شد', 'اطلاعات با موفقیت ویرایش شد');
     return redirect()->back();
 }

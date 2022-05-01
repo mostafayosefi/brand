@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Setting;
 use App\Models\Filebrand;
+use App\Rules\ValidateLink;
 use App\Rules\ValidateRule;
 use Illuminate\Support\Str;
 use App\Models\Requestbrand;
@@ -28,10 +30,13 @@ class RequestbrandController extends Controller
 
     public function create(){
         $users=User::all();
+        $setting=Setting::find(1);
         $servicebrands=Servicebrand::all();
         $categorybrands=Categorybrand::all();
         $subcategorybrands=Subcategorybrand::all();
-        return view('admin.requestbrand.create' , compact([ 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' ]) );
+        $mysubcategorybrands=Subcategorybrand::where([ ['categorybrand_id' ,3], ])->get();
+
+        return view('admin.requestbrand.create' , compact([ 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands'  , 'mysubcategorybrands' , 'setting' ]) );
     }
 
     public function edit($id){
@@ -43,11 +48,16 @@ class RequestbrandController extends Controller
     public function store(RequestbrandRequest $request)
     {
 
+
+        $request->validate([
+            'name' => [new ValidateLink('requestbrand','regec_pers')] ,
+        ]);
+
         $data = $request->all();
-        // $data['status']='register';
         $data['status']='waiting';
         $data['random']= Str::random(8);
         $requestbrand=Requestbrand::create($data);
+
         $image_uploader_multiple =  uploadFileArray($request->image_uploader_multiple,'images/requestbrands');
         if($image_uploader_multiple){
             foreach($image_uploader_multiple as $file){
@@ -56,7 +66,10 @@ class RequestbrandController extends Controller
         }
 
        $funclistbeand = storelistbrands($requestbrand->id,$request->servicebrand);
-       $price=sumpricereqbrand($requestbrand->id);
+
+       $funclistbeand = storelistsubbrands($requestbrand->id,$request->subcategorybrand);
+
+       $price=sumpricereqbrand($requestbrand->id,'sum');
        $requestbrand->update([ 'price' => $price  ]);
        Alert::success('با موفقیت ثبت شد', 'اطلاعات جدید با موفقیت ثبت شد');
         return redirect()->route('admin.requestbrand.index');
@@ -69,7 +82,10 @@ class RequestbrandController extends Controller
         $servicebrands=Servicebrand::all();
         $categorybrands=Categorybrand::all();
         $subcategorybrands=Subcategorybrand::all();
-        return view('admin.requestbrand.show' , compact([ 'requestbrand' , 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' ]) );
+
+        $setting=Setting::find(1);
+
+        return view('admin.requestbrand.show' , compact([ 'requestbrand' , 'users' , 'servicebrands' , 'categorybrands' , 'subcategorybrands' , 'setting' ]) );
 
 
     }
@@ -91,8 +107,8 @@ class RequestbrandController extends Controller
     }
 
 
-    public function destroy($id , RequestbrandRequest $request){
-        Requestbrand::destroy($request->id);
+    public function destroy($id , Request $request){
+        Requestbrand::destroy($id);
         Alert::info('با موفقیت حذف شد', 'اطلاعات با موفقیت حذف شد');
         return back();
     }

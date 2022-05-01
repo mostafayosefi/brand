@@ -37,12 +37,20 @@
 
                                 <div class="col-sm-12">
 
+                                    @include('index.layouts.elementor.txtalert', [ 'id' => '14' ])
+                                    <br>
+                                    @include('admin.layouts.table.java_price')
 
                                     <div class="form-group">
                                         <label for="price"> هزینه شارژ به ریال</label>
                                         <input type="text" class="form-control" id="price" autocomplete="off"
-                                            placeholder="  هزینه شارژ به ریال   " name="price" value="{{ old('price') }}">
+                                            placeholder="  هزینه شارژ به ریال   " name="price" value="{{ old('price') }}"   onkeyup="separateNum(this.value,this);"    >
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="text">توضیحات      </label>
+                                        <textarea class="form-control" name="text" id="text" rows="5" >{{old('text')}}</textarea>
+                                        </div>
 
 
 

@@ -154,6 +154,7 @@ return array(
     'App\\Models\\Post' => $baseDir . '/app/Models/Post.php',
     'App\\Models\\Renew' => $baseDir . '/app/Models/Renew.php',
     'App\\Models\\Requestbrand' => $baseDir . '/app/Models/Requestbrand.php',
+    'App\\Models\\RequestbrandListSubcategory' => $baseDir . '/app/Models/RequestbrandListSubcategory.php',
     'App\\Models\\Servicebrand' => $baseDir . '/app/Models/Servicebrand.php',
     'App\\Models\\Setting' => $baseDir . '/app/Models/Setting.php',
     'App\\Models\\Spotlite' => $baseDir . '/app/Models/Spotlite.php',

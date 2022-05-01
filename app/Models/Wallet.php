@@ -13,6 +13,8 @@ class Wallet extends Model
         'price',
         'flag',
         'status',
+        'text',
+        'textadmin',
         'user_id',
         'order_id',
     ];

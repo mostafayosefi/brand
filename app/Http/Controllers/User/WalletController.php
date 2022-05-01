@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Wallet;
+use App\Rules\ValidateLink;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -32,13 +33,14 @@ class WalletController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'price' => 'required|numeric',
+            'price' => [new ValidateLink('price','regec_pers')] ,
         ]);
         $data = $request->all();
         $data['flag']  =  'inc';
         $data['status']  =  'waiting';
         $data['user_id']  = Auth::guard('user')->user()->id;
 
+        $data['price'] = str_rep_price($data['price']);
        Wallet::create($data);
        Alert::error('              متاسفانه درگاه پرداخت فعالی وجود ندارد ', '        پرداخت شارژ حساب انجام نگرفت      ');
         return redirect()->route('user.finical.wallet.index');

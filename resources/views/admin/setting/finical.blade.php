@@ -38,12 +38,20 @@
                                     <div class="col-sm-6">
 
 
+                                        @include('admin.layouts.table.java_price')
 
                                         <div class="form-group">
                                             <h4 class="card-title"> قیمت روز دلار (به ریال)  </h4>
-                                            <input type="text" class="form-control" id="exampleInputUsername1"
+                                            <input type="text" class="form-control" id="price"
                                                 autocomplete="off" placeholder="   " name="rateusd"
-                                                value="{{ $setting->mngfinical->rateusd }}" required>
+                                                value="{{ $setting->mngfinical->rateusd }}"   onkeyup="separateNum(this.value,this);"  required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h4 class="card-title">هزینه هر پلان طبقات ثبت برند (به ریال) </h4>
+                                            <input type="text" class="form-control" id="priceplan"
+                                                autocomplete="off" placeholder="   " name="priceplan"
+                                                value="{{ $setting->mngfinical->priceplan }}"   onkeyup="separateNum(this.value,this);"  required>
                                         </div>
 
 

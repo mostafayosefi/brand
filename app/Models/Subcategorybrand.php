@@ -18,9 +18,10 @@ class Subcategorybrand extends Model
     }
 
 
-    public function requestbrands(){
-        return $this->hasMany(Requestbrand::class , 'subcategorybrand_id');
+    public function requestbrand_list_subcategories(){
+        return $this->hasMany(RequestbrandListSubcategory::class , 'subcategorybrand_id');
     }
+
 
 
 

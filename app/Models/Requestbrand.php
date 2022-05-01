@@ -13,7 +13,7 @@ class Requestbrand extends Model
 
         'name', 'email' , 'tellir', 'adresir', 'codepir',
         'tellin', 'adresin', 'codepin', 'birthday',
-        'reach','before','status', 'user_id', 'subcategorybrand_id',
+        'reach','before','status', 'user_id',  
          'fromshow' , 'toshow' ,'price' ,'random' ,
     ];
 
@@ -22,10 +22,6 @@ class Requestbrand extends Model
         return $this->belongsTo(User::class);
     }
 
-
-    public function subcategorybrand(){
-        return $this->belongsTo(Subcategorybrand::class);
-    }
 
 
     public function listservicebrands(){
@@ -47,6 +43,12 @@ class Requestbrand extends Model
     {
         return $this->hasMany(Discriptionorder::class , 'requestbrand_id' );
     }
+
+
+    public function requestbrand_list_subcategories(){
+        return $this->hasMany(RequestbrandListSubcategory::class , 'requestbrand_id');
+    }
+
 
 
 
