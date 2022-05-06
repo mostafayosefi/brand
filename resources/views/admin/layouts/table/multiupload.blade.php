@@ -27,7 +27,7 @@
     <input name="rnd" type="hidden" value="4444" />
 
     </div>
-    <span style="color: #0079ff">راهنمایی : دقت نمایید عکس مناسب به فرمت jpg , png , gif انتخاب نمایید. </span>
+    {{-- <span style="color: #0079ff">راهنمایی : دقت نمایید عکس مناسب به فرمت jpg , png , gif انتخاب نمایید. </span> --}}
 
 
     <style>

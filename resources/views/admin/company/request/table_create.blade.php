@@ -15,7 +15,14 @@
                                   @csrf
                                   <div class="row">
 
-                                    <div class="col-lg-5">
+                                    <div class="col-lg-12">
+                                        @include('index.layouts.elementor.txtalert', [ 'id' => '16' ])
+
+                                    </div>
+                                    </div>
+                                        <div class="row">
+
+                                          <div class="col-lg-5">
 
 
 
@@ -30,17 +37,24 @@
                                           'name_select' => ' پلان ' ,  'value' => $plan , 'required'=>'required'  ,
                                           'index_id'=>'company_plan_id'  ])
 
+@php $my_price_plan = 0; @endphp
 
+@foreach ($company_plans as $company_plan )
 
+@if($company_plan->id==$plan)
+@php $my_price_plan = $company_plan->price; @endphp
+@endif
+
+@endforeach
 
 
 <div class="form-group">
 
-    <input type="hidden" name="qty"  id="resultBox_hidden"    />
+    <input type="hidden" name="qty"  id="resultBox_hidden"  value="{{$my_price_plan}}"   />
 
     <label for="name">هزینه پلان (به ریال)</label>
     <input type="text" class="form-control"  autocomplete="off"  id="resultBox"
-    placeholder=" هزینه پلان "  readonly="true" type="text"  value="0 ریال " disabled  >
+    placeholder=" هزینه پلان "  readonly="true" type="text"  value="{{$my_price_plan}} ریال " disabled  >
     </div>
 
 
@@ -299,6 +313,10 @@ if(company_service_id==idvalue){
 
 
   @include('admin.layouts.table.multiupload', [ $label='آپلود فایل' , ])
+
+  <hr>
+
+  @include('index.layouts.elementor.txtalert', [ 'id' => '18' ])
 
 </div>
 

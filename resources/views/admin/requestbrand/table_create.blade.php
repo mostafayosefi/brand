@@ -42,9 +42,20 @@
 
 
 
-                              <form class="forms-sample" method="POST" action="{{$route}}"
+                              <form class="forms-sample" method="POST" action="{{$route}}"    onchange="totalIt()"
                                   enctype="multipart/form-data" onsubmit="return Validate(this);">
                                   @csrf
+
+
+                                  <div class="row">
+
+                                    <div class="col-lg-12">
+                                        @include('index.layouts.elementor.txtalert', [ 'id' => '15' ])
+
+                                    </div>
+                                    </div>
+
+
                                   <div class="row">
 
                                     <div class="col-lg-5">
@@ -358,7 +369,7 @@ function show2(){
     <input type="text" class="form-control"  autocomplete="off"
     placeholder=" هزینه کل "  readonly="readonly" type="text"    id="resulttotal" value="{{$jam}} ریال " disabled  >
     </div>
- 
+
 
 <script>
 
@@ -368,7 +379,14 @@ function totalIt() {
 $(function(){
   $('#view_mycategorybrand').change(function() {
     // var sum = $(this).find(':checked').map(function() { return parseInt(this.value, 10); }).get().reduce(function(a,b) { return a + b; });
-    var sum = $(this).find(':checked').map(function() { return parseInt(<?php echo $setting->mngfinical->priceplan; ?>, 10); }).get().reduce(function(a,b) { return a + b; });
+
+
+    var i=0;
+    var c = <?php echo $setting->mngfinical->priceplan; ?>;
+    var sum = $(this).find(':checked').map(function() { return parseInt(<?php echo $setting->mngfinical->priceplan; ?>, 10); }).get().reduce(function(a,b) { i++;
+        if(i=='0'){var jam = 0;}else{var jam = a + b ;}
+         return i * c;
+        });
 
     var resultplan = document.getElementById('resultplan');
     $('#resultplan').val(sum);
@@ -443,7 +461,11 @@ var orgvalue = <?php echo $servicebrand->price;?> ;
   <hr>
 
 
-  @include('admin.layouts.table.multiupload', [ $label='آپلود فابل' , ])
+  @include('admin.layouts.table.multiupload', [ $label='آپلود فایل' , ])
+
+  <hr>
+
+  @include('index.layouts.elementor.txtalert', [ 'id' => '17' ])
 
 </div>
 

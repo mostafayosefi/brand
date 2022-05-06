@@ -268,7 +268,7 @@
                 </li>
 
                 <li class="nav-item">
- <a href="{{ route('admin.requestbrand.create') }}" class="nav-link   {{ isActive(['admin.requestbrand.create']) }}  ">ثبت سفارش جدید  </a>
+ <a href="{{ route('admin.requestbrand.create') }}" class="nav-link   {{ isActive(['admin.requestbrand.create']) }}  ">ثبت سفارش برند  </a>
                 </li>
 
               </ul>

@@ -32,17 +32,20 @@ class TrackingController extends Controller
 
     public function tracking_result(Request $request){
 
-        if($request->requestbrand){
+        if($request->mymodel=='requestbrand'){
             $tracking=Requestbrand::where('random' , '=' ,$request->random)->first();
-        }else{
+        }
+
+        if($request->mymodel=='requestcompany'){
             $tracking=CompanyRequest::where('random' , '=' ,$request->random)->first();
         }
+
 
         if($tracking){
         Alert::success('با موفقیت پیدا شد', 'استعلام جدید باموفقیت پیدا شد');
             return back()->with([  'random' => $request->random]);
         }else{
-            Alert::error('کدپیگیری ثبت نشده است      ', 'متاسفانه کد پیگیری ثیت نشده است');
+            Alert::error('کدپیگیری ثبت نشده است      ', 'متاسفانه کد پیگیری ثبت نشده است');
             return back()->with([  'random' => $request->random]);
         }
 

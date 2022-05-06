@@ -245,10 +245,13 @@ if(! function_exists('storelistsubbrands') ) {
              $listbrand =  RequestbrandListSubcategory::create([ 'requestbrand_id'   => $requestbrand_id,
             'subcategorybrand_id'     => $allsubcategory->id, 'show' => 0, ]);
         }
+
+        if($subcategorybrand){
         foreach($subcategorybrand as  $key =>  $sub){
         $listbrand=RequestbrandListSubcategory::where([ ['subcategorybrand_id' ,   $sub ],
         ['requestbrand_id' ,   $requestbrand_id ],  ])->update([ 'show' => 1 ]);
         }
+    }
 
 
     }
@@ -265,10 +268,15 @@ if(! function_exists('storelistcompany') ) {
              $listcompany =  CompanyListService::create([ 'company_request_id'   => $company_request_id,
             'company_service_id'     => $companyservice->id, 'show' => 0, ]);
         }
+
+
+        if($company_services){
         foreach($company_services as  $key =>  $company_service){
         $listcompany=CompanyListService::where([ ['company_service_id' ,   $company_service ],
         ['company_request_id' ,   $company_request_id ],  ])->update([ 'show' => 1 ]);
         }
+    }
+
 
 
     }
@@ -284,6 +292,8 @@ if(! function_exists('sumpricereqbrand') ) {
         ['show' ,   1 ],  ])->get();
         $countlistsub=RequestbrandListSubcategory::where([ ['requestbrand_id' ,   $id ],
         ['show' ,   1 ],  ])->count();
+        if($countlistsub=='0'){ $countlistsub = 0;}else{ $countlistsub = $countlistsub-1;}
+
 
         $servicebrand_price=0;
         foreach($listbrands as $listbrand){
@@ -1068,6 +1078,9 @@ if ($status == 'active'){$statusacc='active';  $nameoper='فعالسازی مج�
 if ($status == 'inactive'){$statusacc='register';  $nameoper='فعالسازی مجدد سفارش';  $messagetext='سفارش مجددا توسط مدیریت تایید شد';}
 if ($status == 'reactive'){$statusacc='register';  $nameoper='فعالسازی مجدد سفارش';  $messagetext='سفارش مجددا توسط مدیریت تایید شد';}
 if ($status == 'recerve'){$statusacc='active';  $nameoper='ثبت نهایی شرکت';  $messagetext='ثبت نهایی شرکت باموفقیت انجام شد';}
+if ($status == 'waitpay'){$statusacc='active';  $nameoper='تایید پرداخت کاربر';  $messagetext='پرداخت کاربر توسط مدیریت تایید شد';}
+
+
 
 if($myfunc=='status'){ return $statusacc; }
 if($myfunc=='nameoper'){ return $nameoper; }

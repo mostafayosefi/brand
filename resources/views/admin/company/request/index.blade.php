@@ -32,6 +32,7 @@
         <th>  ردیف </th>
         <th>   کاربر </th>
         <th>   نام شرکت </th>
+        <th>   کدپیگیری   </th>
         <th>   هزینه </th>
         <th> تاریخ ثبت </th>
         <th> وضعیت</th>
@@ -52,6 +53,7 @@
         <td>{{ $key + 1 }}</td>
         <td>{{$admin->user->name}}</td>
         <td>{{$admin->name}}</td>
+        <td>{{$admin->random}}</td>
 
         <td> {{flage_price($admin->price)}}</td>
         <td>{{ date_frmat($admin->created_at) }}</td>

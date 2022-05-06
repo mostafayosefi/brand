@@ -31,6 +31,7 @@
     <tr>
         <th>  ردیف </th>
         <th>   برند </th>
+        <th>   کدپیگیری   </th>
         <th>   هزینه </th>
         <th> تاریخ ثبت </th>
         <th> وضعیت</th>
@@ -50,6 +51,7 @@
     <tr>
         <td>{{ $key + 1 }}</td>
         <td>{{$admin->name}}</td>
+        <td>{{$admin->random}}</td>
 
         <td> {{flage_price($admin->price)}}</td>
         <td>{{ date_frmat($admin->created_at) }}</td>

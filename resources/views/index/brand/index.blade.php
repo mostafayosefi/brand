@@ -189,6 +189,53 @@
 
 </section>
 
+
+
+
+
+
+<section class="other-services">
+    <div class="faq-title">
+        <h2>نظرات مشتریان</h2>
+        <span>مشتریان ما در مورد ما چه نظری دارند؟</span>
+    </div>
+
+    <div class="owl-carousel owl-other-services">
+
+
+
+        @if($coment)
+        @foreach($coment as $mycoment)
+        <div class="item">
+                    <div class="other-services-box">
+
+                        <h3 class="other-services-box-title">{{$mycoment->title}}</h3><br>
+                        <h6>{{$mycoment->role}}</h6>
+                        <p>{{$mycoment->text}}</p>
+                    </div>
+                </div>
+
+            @endforeach
+            @endif
+
+
+
+
+
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 <section class="other-services">
     <div class="faq-title">
         <h2>نظرات مشتریان</h2>
@@ -227,7 +274,6 @@
         <button type="button" role="presentation" class="owl-next"><i class="far fa-chevron-left"></i></button>
     </div>
     <div class="owl-dots">
-        {{-- <button role="button" class="owl-dot"><span></span></button> --}}
         <button role="button" class="owl-dot active"><span></span></button>
     </div></div>
 </section>

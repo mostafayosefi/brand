@@ -6,14 +6,15 @@ use App\Models\User;
 use App\Models\CompanyFile;
 use App\Models\CompanyPlan;
 use App\Models\CompanyType;
+use App\Rules\ValidateLink;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\CompanyRequest;
 use App\Models\CompanyService;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Requests\Admin\CompanyRequestRequest;
 use phpDocumentor\Reflection\Types\Null_;
+use App\Http\Requests\Admin\CompanyRequestRequest;
 
 class CompanyRequestController extends Controller
 {
@@ -43,10 +44,14 @@ class CompanyRequestController extends Controller
     public function store(CompanyRequestRequest $request)
     {
 
+        $request->validate([
+            'name' => [new ValidateLink('requestbrand','regec_pers')] ,
+        ]);
+
         $data = $request->all();
         // $data['status']='register';
         $data['status']='waiting';
-        $data['random']= Str::random(8);
+        $data['random']= Str::random(8); 
         $company_request=CompanyRequest::create($data);
         $image_uploader_multiple =  uploadFileArray($request->image_uploader_multiple,'images/company_requests');
         if($image_uploader_multiple){
@@ -102,7 +107,7 @@ class CompanyRequestController extends Controller
 
 
 
-    public function status( $id , $status , CompanyRequestRequest $request){
+    public function status( $id , $status , Request $request){
 
 /*
         $request->validate([
@@ -119,6 +124,14 @@ class CompanyRequestController extends Controller
         store_timeline_1('admin' , 'company_request' , $data['text'] , $status , $company_request->user_id , $id  , 1);
 
         $statusacc = status_request_company($status,'status');
+
+
+        if($status=='waitpay'){
+            Alert::success('پرداخت سفارش با موفقیت تایید شد', 'پرداخت سفارش با موفقیت تایید شد');
+            $company_request->update(['status' => 'active'   ]);
+
+        }
+
 
 
         if(($status=='active')||($status=='waiting')){

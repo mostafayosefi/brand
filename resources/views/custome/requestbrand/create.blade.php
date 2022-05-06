@@ -1,7 +1,7 @@
   @component('custome.layouts.content', [
-      'title' => 'ایجاد سفارش جدید',
-      'tabTitle' => 'ایجاد سفارش جدید',
-      'breadcrumb' => [['title' => 'لیست سفارشات کاربران ', 'url' => route('admin.requestbrand.index')], ['title' => 'ایجاد سفارش جدید',
+      'title' => 'ثبت سفارش برند',
+      'tabTitle' => 'ثبت سفارش برند',
+      'breadcrumb' => [['title' => 'لیست برندهای من  ', 'url' => route('admin.requestbrand.index')], ['title' => 'ثبت سفارش برند',
       'class' => 'active']],
       ])
 
@@ -24,7 +24,7 @@
                           <div class="card-body">
 
                               <div class="card-header card-header-border-bottom">
-                                  <h4> ایجاد سفارش جدید </h4>
+                                  <h4> ثبت سفارش برند </h4>
                               </div>
 
                               <br>

@@ -20,12 +20,12 @@
 
 
         <div class="col-md-4 grid-margin stretch-card">
-            @include('custome.dashboard.card', [  'icon_card' => 'check-square'    , 'count_card' => count_dashboard('all','requestbrand')  , 'title_card' => 'سفارشهای برند کاربر' , 'desc_card' => 'سفارش برند ' ,
+            @include('custome.dashboard.card', [  'icon_card' => 'check-square'    , 'count_card' => count_dashboard('all','requestbrand')  , 'title_card' => 'برندهای من' , 'desc_card' => 'سفارش برند ' ,
 'route_create' => route('admin.requestbrand.create')  ,  'route_index' => route('admin.requestbrand.index') , 'new_card' =>  count_dashboard('all','new_requestbrand_admin')." سفارش برند" ])
         </div>
 
         <div class="col-md-4 grid-margin stretch-card">
-            @include('custome.dashboard.card', [  'icon_card' => 'check-square'    , 'count_card' => count_dashboard('all','company_request')  , 'title_card' => 'سفارشهای ثبت شرکت کاربر' , 'desc_card' => 'سفارش شرکت ' ,
+            @include('custome.dashboard.card', [  'icon_card' => 'check-square'    , 'count_card' => count_dashboard('all','company_request')  , 'title_card' => 'شرکت های من' , 'desc_card' => 'سفارش شرکت ' ,
 'route_create' => route('admin.company.request.create')  ,  'route_index' => route('admin.company.request.index') , 'new_card' =>  count_dashboard('all','new_company_request_admin')." سفارش شرکت" ])
         </div>
 

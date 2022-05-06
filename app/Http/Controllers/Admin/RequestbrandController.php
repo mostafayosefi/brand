@@ -48,7 +48,6 @@ class RequestbrandController extends Controller
     public function store(RequestbrandRequest $request)
     {
 
-
         $request->validate([
             'name' => [new ValidateLink('requestbrand','regec_pers')] ,
         ]);
