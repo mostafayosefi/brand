@@ -1,9 +1,10 @@
 
 @if ($value=='offline')
-<br>
+ 
+
 @include('index.layouts.elementor.txtalert', [ 'id' => '14' ])
 
-<br>
+
 @if ($oper=='order')
 <div class="form-group">
 <label for="exampleFormControlTextarea1">توضیحات پرداخت آفلاین  </label>

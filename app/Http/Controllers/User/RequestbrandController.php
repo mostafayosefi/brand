@@ -50,6 +50,8 @@ class RequestbrandController extends Controller
     {
 
         $data = $request->all();
+
+        $data['user_id']  = Auth::guard('user')->user()->id;
         $data['status']='waiting';
         $data['random']= Str::random(8);
         $data['user_id']  = Auth::guard('user')->user()->id;

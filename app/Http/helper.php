@@ -252,6 +252,7 @@ if(! function_exists('storelistsubbrands') ) {
         ['requestbrand_id' ,   $requestbrand_id ],  ])->update([ 'show' => 1 ]);
         }
     }
+    
 
 
     }

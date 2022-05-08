@@ -60,7 +60,7 @@
 <td> <a href="{{$route_show}}"> @include('admin.company.request.get_status', [$admin ,'route' => ''    ]) </a> </td>
 
 <td>
-@if(($admin->status=='active')||($admin->status=='waitpay'))
+@if(($admin->status=='active')||($admin->status=='waitpay')||($admin->status=='recerve'))
 -
 @else
 @include('admin.layouts.table.modal', [$admin ,'route' => $route_destroy , 'myname' => 'حذف سفارش '.$admin->domain ])

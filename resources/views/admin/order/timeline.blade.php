@@ -11,7 +11,7 @@
     @foreach ($discriptionorders as $discriptionorder )
     @if($discriptionorder->operator==$myoperator)
 
-    <li class="event" data-date=" @if ($discriptionorder->by=='admin') مدیریت @else {{$discriptionorder->user->name}}   @endif"  >
+    <li class="event" data-date=" @if ($discriptionorder->by=='admin') پشتیبانی @else {{$discriptionorder->user->name}}   @endif"  >
         @if ($discriptionorder->flag=='active')
         <span class="badge badge-success"><h5> فعال شد</h5></span>
         @endif
