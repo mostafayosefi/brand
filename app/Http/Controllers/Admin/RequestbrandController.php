@@ -49,6 +49,7 @@ class RequestbrandController extends Controller
     {
 
         $request->validate([
+            'user_id' => 'required',
             'name' => [new ValidateLink('requestbrand','regec_pers')] ,
         ]);
 

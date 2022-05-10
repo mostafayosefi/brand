@@ -32,7 +32,7 @@
 
                               @include('admin.layouts.errors')
 
-                              @include('admin.requestbrand.table_create', [ 'route' => route('admin.requestbrand.store')  ,
+                              @include('admin.requestbrand.table_create', [ 'route' => route('user.requestbrand.store')  ,
                                'users' => $users  ,   'arou' => 'user'])
 
 

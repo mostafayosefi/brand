@@ -42,7 +42,7 @@ class RequestbrandController extends Controller
 
     public function edit($id){
         $requestbrand=Requestbrand::find($id);
-        return view('admin.requestbrand.edit' , compact(['requestbrand'  ]));
+        return view('custome.requestbrand.edit' , compact(['requestbrand'  ]));
     }
 
 
@@ -51,10 +51,10 @@ class RequestbrandController extends Controller
 
         $data = $request->all();
 
+
         $data['user_id']  = Auth::guard('user')->user()->id;
         $data['status']='waiting';
         $data['random']= Str::random(8);
-        $data['user_id']  = Auth::guard('user')->user()->id;
         $requestbrand=Requestbrand::create($data);
         $image_uploader_multiple =  uploadFileArray($request->image_uploader_multiple,'images/requestbrands');
         if($image_uploader_multiple){
@@ -70,7 +70,7 @@ class RequestbrandController extends Controller
         $price=sumpricereqbrand($requestbrand->id,'sum');
        $requestbrand->update([ 'price' => $price  ]);
        Alert::success('با موفقیت ثبت شد', 'اطلاعات جدید با موفقیت ثبت شد');
-        return redirect()->route('admin.requestbrand.index');
+        return redirect()->route('user.requestbrand.index');
     }
 
     public function show($id)
