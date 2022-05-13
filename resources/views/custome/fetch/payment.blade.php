@@ -1,8 +1,10 @@
 
 @if ($value=='offline')
- 
 
-@include('index.layouts.elementor.txtalert', [ 'id' => '14' ])
+    @include('index.layouts.elementor.txtalert', [ 'id' => '14' ])
+
+
+
 
 
 @if ($oper=='order')

@@ -36,6 +36,9 @@
         @if ($discriptionorder->flag=='depo')
         <span class="badge badge-primary"><h5> پرداخت از شارژ حساب</h5></span>
         @endif
+        @if ($discriptionorder->flag=='waitpay')
+        <span class="badge badge-success"><h5> پرداخت تایید شد</h5></span>
+        @endif
 
         @if ($discriptionorder->active=='0')
         <span class="badge">انجام نشد</span>

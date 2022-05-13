@@ -19,10 +19,7 @@
 
 
 <div class="col-12 col-xl-12 stretch-card">
-    <div class="row flex-grow">
 
-
-        <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
 
@@ -34,13 +31,6 @@
 
 
 
-
-
-<div class="row flex-grow">
-<div class="col-md-12 grid-margin stretch-card">
-
-
-<div class="card-body">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
           <a class="nav-link @if (empty(Session::get('err'))) active @endif "
@@ -116,29 +106,6 @@
 </div>
 </div>
 </div>
-
-
-
-
-
-
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="col-md-12 grid-margin stretch-card">
-
-
-
-        </div>
-
-
-
-    </div>
-</div>
-
 
 
 

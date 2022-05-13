@@ -3,7 +3,7 @@
     <div class="container">
         <div class="menu">
             <a href="{{ route('index.home') }}">
-                <img src="{{$setting->logo}}" alt="{{$setting->title}}" style="width: 111px; height: 60px;">
+                <img src="{{$setting->logo}}" alt="{{$setting->title}}" style="width: 166px; height: 60px;">
                 {{-- <img src="{{asset('sabt_files/logo-1.png')}}" alt="{{$setting->title}}"  style="width: 111px; height: 60px;"> --}}
             </a>
             <i class="far fa-bars responsive-menu"></i>

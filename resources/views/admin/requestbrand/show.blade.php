@@ -14,13 +14,7 @@
 @include('admin.errors.404')
 @elseif($requestbrand != Null)
 
-
-
-          <div class="col-12 col-xl-12 stretch-card">
-              <div class="row flex-grow">
-
-
-                  <div class="col-md-12 grid-margin stretch-card">
+<div class="col-12 col-xl-12 stretch-card">
                       <div class="card">
                           <div class="card-body">
 
@@ -32,13 +26,6 @@
 
 
 
-
-
-<div class="row flex-grow">
-    <div class="col-md-12 grid-margin stretch-card">
-
-
-        <div class="card-body">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link @if (empty(Session::get('err'))) active @endif "
@@ -54,7 +41,7 @@
                             data-feather="server"></i>
                         فاکتور پرداخت</a>
                 </li>
- 
+
 
                 <li class="nav-item">
                     <a class="nav-link  " id="icon-timeline-tab" data-toggle="tab"
@@ -92,14 +79,14 @@
                         </div>
                     </div>
                 </div>
- 
+
 
                 <div class="tab-pane pt-3 fade  " id="icon-timeline" role="tabpanel"
                     aria-labelledby="icon-timeline-tab">
                     <div class="row">
                         <div class="col-xl-12">
- 
-                            
+
+
 @if($requestbrand->discriptionorders)
 @include('admin.order.timeline', [  'discriptionorders' => $requestbrand->discriptionorders , 'myoperator'=>'requestbrand' ])
 @endif
@@ -119,23 +106,6 @@
 
 
 
-
-                          </div>
-                      </div>
-                  </div>
-
-
-
-                  <div class="col-md-12 grid-margin stretch-card">
-
-
-
-                  </div>
-
-
-
-              </div>
-          </div>
 
           @endif
 

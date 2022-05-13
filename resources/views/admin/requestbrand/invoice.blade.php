@@ -48,7 +48,16 @@
     <td class="text-right">{{$key+1}}</td>
     <td class="text-right">{{$admin->subcategorybrand->name}} </td>
     <td class="text-right">  @php echo $admin->subcategorybrand->text; @endphp    </td>
-    <td>{{flage_price($setting->mngfinical->priceplan)}}</td>
+    <td>
+        @if($key=='1')
+        <span class="spanstatus spanstatus_warning">
+                هزینه اولین طبقه رایگان می باشد
+             </span>
+        @else
+
+        {{flage_price($setting->mngfinical->priceplan)}}
+        @endif
+    </td>
   </tr>
 @endif
  @endforeach

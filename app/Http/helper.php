@@ -252,7 +252,7 @@ if(! function_exists('storelistsubbrands') ) {
         ['requestbrand_id' ,   $requestbrand_id ],  ])->update([ 'show' => 1 ]);
         }
     }
-    
+
 
 
     }
@@ -1153,14 +1153,18 @@ if($myfunc=='text'){ return $messagetext; }
         {
 
 
- if($price=='0'){
-echo   '<span class="spanstatus spanstatus_warning">
-                در انتظار تعیین قیمت
-</span>';
-}else{
-$exit=number_format($price).' ريال ';    return  $exit;
-}
+//  if($price=='0'){
+// echo   '<span class="spanstatus spanstatus_warning">
+//                 در انتظار تعیین قیمت
+// </span>';
+// }else{
+// $exit=number_format($price).' ريال ';    return  $exit;
+// }
 
+
+
+
+$exit=number_format($price).' ريال ';    return  $exit;
 
 
 

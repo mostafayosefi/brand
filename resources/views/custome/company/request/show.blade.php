@@ -15,30 +15,18 @@
 @elseif($company_request != Null)
 
 
-          <div class="col-12 col-xl-12 stretch-card">
-              <div class="row flex-grow">
+<div class="col-12 col-xl-12 stretch-card">
 
 
-                  <div class="col-md-12 grid-margin stretch-card">
-                      <div class="card">
-                          <div class="card-body">
-
-                              <div class="card-header card-header-border-bottom">
-                                  <h4>مشاهده درخواستهای ثبت شرکت </h4>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header card-header-border-bottom">
+                <h4>مشاهده درخواستهای ثبت شرکت </h4>
                               </div>
 <br>
 @include('admin.company.request.multiseteps', ['order' => $company_request  ])
 
 
- 
-
-
-
-<div class="row flex-grow">
-    <div class="col-md-12 grid-margin stretch-card">
-
-
-        <div class="card-body">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link @if (empty(Session::get('err'))) active @endif "
@@ -80,9 +68,7 @@
 
                     <div class="row">
                         <div class="col-xl-12">
-
                             @include('admin.company.request.table_show', [  'route' => route('user.company.request.payment', $company_request)  , 'aroue' => 'user'  ,   $users  ])
-
                         </div>
                     </div>
                 </div>
@@ -121,37 +107,14 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>
+@endif
+</div>
 
-
-
-
-
-
-
-                          </div>
-                      </div>
-                  </div>
-
-
-
-                  <div class="col-md-12 grid-margin stretch-card">
-
-
-
-                  </div>
-
-
-
-              </div>
-          </div>
-
-          @endif
-
-
-      </div>
 
 
 

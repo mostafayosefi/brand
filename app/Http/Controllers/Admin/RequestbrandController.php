@@ -116,7 +116,7 @@ class RequestbrandController extends Controller
 
 
 
-    public function status( $id , $status , RequestbrandRequest $request){
+    public function status( $id , $status , Request $request){
 
 /*
         $request->validate([
@@ -153,6 +153,11 @@ class RequestbrandController extends Controller
     if($status=='inactive'){
         Alert::error('سفارش لغو شد         ', 'متاسفانه سفارش شما لغو شد');
         $requestbrand->update(['status' => 'inactive' ]);
+    }
+    if($status=='waitpay'){
+        Alert::success('پرداخت با موفقیت تایید شد', 'پرداخت کاربر با موفقیت تایید شد');
+        $requestbrand->update(['status' =>'active' , 'price'=> $data['price'] ]);
+
     }
 
 

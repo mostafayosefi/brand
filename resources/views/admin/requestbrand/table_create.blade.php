@@ -396,7 +396,7 @@ $(function(){
 
   var input = document.getElementsByName("servicebrand[]");
   var total = 0;
-  for (var i = 0; i < input.length; i++) {
+  for (var i = 1; i < input.length; i++) {
     if (input[i].checked) {
 var idvalue = parseFloat(input[i].value);
 <?php foreach ($servicebrands as $servicebrand ){ ?>

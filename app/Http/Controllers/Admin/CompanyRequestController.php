@@ -51,7 +51,7 @@ class CompanyRequestController extends Controller
         $data = $request->all();
         // $data['status']='register';
         $data['status']='waiting';
-        $data['random']= Str::random(8); 
+        $data['random']= Str::random(8);
         $company_request=CompanyRequest::create($data);
         $image_uploader_multiple =  uploadFileArray($request->image_uploader_multiple,'images/company_requests');
         if($image_uploader_multiple){
@@ -75,6 +75,7 @@ class CompanyRequestController extends Controller
         $company_plans=CompanyPlan::all();
         $company_types=CompanyType::all();
         return view('admin.company.request.show' , compact([ 'company_request' , 'users' , 'company_services' , 'company_plans' , 'company_types' ]) );
+        // return view('admin.company.request.demo' , compact([ 'company_request' , 'users' , 'company_services' , 'company_plans' , 'company_types' ]) );
 
 
     }
