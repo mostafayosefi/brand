@@ -308,10 +308,29 @@
 
                             <div class="email-list-item email-list-item">
                                 <div class="col-xl-6  col-lg-6  col-md-6  col-sm-6  ">
-                                    <span class="from">  وضعیت پرداخت</span>
+                                    <span class="from">  وضعیت پرداخت  </span>
                                 </div>
                                 <div class="col-xl-6  col-lg-6  col-md-6  col-sm-6  ">
-                                    <p class="msg">  @include('admin.layouts.table.getstatus_requestbrand', ['admin' => $requestbrand ,'route' => ''  ,'type_name' => 'requestbrand'   ]) </p>
+
+
+
+
+                                    <p class="msg">  @include('admin.layouts.table.getstatus_requestbrand', ['admin' => $requestbrand ,'route' => ''  ,'type_name' => 'requestbrand'   ])
+
+
+
+                                    </p>
+
+                                    @if($requestbrand->payment)
+                                    @if($requestbrand->payment->type=='offline')
+
+                                    <div class="alert alert-secondary" role="alert">
+                                        توضیحات پرداخت آفلاین: <br>
+                                      {{$requestbrand->payment->textUser}}
+                                  </div>
+
+                                    @endif
+                                    @endif
                                 </div>
                             </div>
 

@@ -234,7 +234,7 @@
 
 
 
-
+{{-- 
 
 <section class="other-services">
     <div class="faq-title">
@@ -244,11 +244,8 @@
 
     <div class="owl-carousel owl-other-services owl-rtl owl-loaded owl-drag">
 
-
-
     <div class="owl-stage-outer">
         <div class="owl-stage" style="transform: translate3d(3027px, 0px, 0px); transition: all 0.75s ease 0s; width: 5045px;">
-
 
             @if($coment)
             @foreach($coment as $mycoment)
@@ -263,10 +260,7 @@
             @endforeach
             @endif
 
-
-
             </div>
-
 
         </div>
         <div class="owl-nav">
@@ -276,7 +270,7 @@
     <div class="owl-dots">
         <button role="button" class="owl-dot active"><span></span></button>
     </div></div>
-</section>
+</section> --}}
 
 
 @if($mnglogos)

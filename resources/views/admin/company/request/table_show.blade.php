@@ -311,6 +311,18 @@
                                         )
 
                                     </p>
+
+
+                                    @if($company_request->payment)
+                                    @if($company_request->payment->type=='offline')
+
+                                    <div class="alert alert-secondary" role="alert">
+                                        توضیحات پرداخت آفلاین: <br>
+                                      {{$company_request->payment->textUser}}
+                                  </div>
+
+                                    @endif
+                                    @endif
                                 </div>
                             </div>
 

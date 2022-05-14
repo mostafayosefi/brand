@@ -383,9 +383,15 @@ $(function(){
 
     var i=0;
     var c = <?php echo $setting->mngfinical->priceplan; ?>;
-    var sum = $(this).find(':checked').map(function() { return parseInt(<?php echo $setting->mngfinical->priceplan; ?>, 10); }).get().reduce(function(a,b) { i++;
-        if(i=='0'){var jam = 0;}else{var jam = a + b ;}
-         return i * c;
+    var sum = $(this).find(':checked').map(function() {
+        if(i<'1'){var jam = 0; return 0;}else{
+            return parseInt(<?php echo $setting->mngfinical->priceplan; ?>, 10);
+        }
+
+
+         }).get().reduce(function(a,b) { i++;
+        if(i<'1'){var jam = 0; return 0;}else{var jam = a + b ; return i * c;}
+
         });
 
     var resultplan = document.getElementById('resultplan');
@@ -396,7 +402,7 @@ $(function(){
 
   var input = document.getElementsByName("servicebrand[]");
   var total = 0;
-  for (var i = 1; i < input.length; i++) {
+  for (var i = 0; i < input.length; i++) {
     if (input[i].checked) {
 var idvalue = parseFloat(input[i].value);
 <?php foreach ($servicebrands as $servicebrand ){ ?>
